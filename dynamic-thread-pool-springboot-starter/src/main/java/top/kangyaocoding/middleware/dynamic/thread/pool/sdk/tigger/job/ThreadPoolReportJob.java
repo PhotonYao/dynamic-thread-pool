@@ -30,16 +30,22 @@ public class ThreadPoolReportJob {
         this.dynamicThreadPoolService = dynamicThreadPoolService;
     }
 
-    // 20 秒执行一次
+    // 定时任务，每20秒执行一次，用于上报线程池状态
     @Scheduled(cron = "*/20 * * * * ?")
     public void executeThreadPoolReportList() {
+        // 获取所有线程池的配置信息
         List<ThreadPoolConfigEntity> threadPoolConfigEntityList = dynamicThreadPoolService.getThreadPoolConfigList();
+        // 向注册中心上报线程池信息
         registry.reportThreadPool(threadPoolConfigEntityList);
 
+        // 记录线程池信息的日志
         logger.info("动态线程池上报，线程池信息: {}", JSON.toJSONString(threadPoolConfigEntityList));
 
+        // 遍历所有线程池配置信息，逐一上报
         for (ThreadPoolConfigEntity threadPoolConfigEntity : threadPoolConfigEntityList) {
+            // 向注册中心上报单个线程池的配置参数
             registry.reportThreadPoolConfigParameter(threadPoolConfigEntity);
+            // 记录单个线程池参数信息的日志
             logger.info("动态线程池上报，线程池参数信息: {}", JSON.toJSONString(threadPoolConfigEntity));
         }
     }

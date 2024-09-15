@@ -25,19 +25,37 @@ public class RedisRegistry implements IRegistry {
         this.redissonClient = redissonClient;
     }
 
+    /**
+     * 向Redisson客户端报告线程池配置列表
+     * 此方法首先删除之前存在的配置，然后将新的线程池配置实体列表添加到Redisson的列表中
+     *
+     * @param threadPoolConfigEntities 线程池配置实体列表
+     */
     @Override
     public void reportThreadPool(List<ThreadPoolConfigEntity> threadPoolConfigEntities) {
+        // 获取或创建一个Redisson的List对象，用于存储线程池配置
         RList<ThreadPoolConfigEntity> list = redissonClient.getList(RegistryEnumVO.THREAD_POOL_CONFIG_LIST_KEY.getKey());
+        // 清空列表，确保之后的添加操作是全新的配置
         list.delete();
+        // 将新的线程池配置实体列表添加到Redisson的列表中
         list.addAll(threadPoolConfigEntities);
     }
 
+    /**
+     * 向Redisson客户端报告单个线程池配置参数
+     * 此方法根据应用程序名称和线程池名称生成一个唯一的键，使用该键在Redisson中保存线程池配置实体
+     *
+     * @param threadPoolConfigEntity 线程池配置实体
+     */
     @Override
     public void reportThreadPoolConfigParameter(ThreadPoolConfigEntity threadPoolConfigEntity) {
+        // 根据应用名和线程池名生成缓存键
         String cacheKey = RegistryEnumVO.THREAD_POOL_CONFIG_PARAMETER_LIST_KEY.getKey() + "_" +
                 threadPoolConfigEntity.getAppName() + "_" +
                 threadPoolConfigEntity.getThreadPoolName();
+        // 获取或创建一个Redisson的Bucket对象，用于存储单个线程池配置
         RBucket<ThreadPoolConfigEntity> bucket = redissonClient.getBucket(cacheKey);
+        // 将线程池配置实体存储到Redisson的Bucket中，设置过期时间为30天
         bucket.set(threadPoolConfigEntity, Duration.ofDays(30));
     }
 }
