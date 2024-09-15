@@ -198,3 +198,305 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 24-09-15.00:15:47.806 [RMI TCP Connection(1)-172.29.8.194] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
 24-09-15.00:15:47.806 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.00:15:47.807 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
+24-09-15.12:07:23.150 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 18928 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:07:23.151 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:07:23.877 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:07:23.880 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:07:23.900 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+24-09-15.12:07:24.346 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:07:24.346 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:07:24.347 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:07:24.347 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:07:24.363 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:07:24.372 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:07:24.372 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:07:24.372 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:07:24.483 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:07:24.483 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1287 ms
+24-09-15.12:07:25.192 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:07:25.383 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:07:25.580 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:07:25.642 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:07:25.948 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dynamicThreadRedissonClient' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]: Unsatisfied dependency expressed through method 'redissonClient' parameter 0; nested exception is org.springframework.boot.context.properties.ConfigurationPropertiesBindException: Error creating bean with name 'dynamic.thread.pool.config-top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfigProperties': Could not bind properties to 'DynamicThreadPoolAutoConfigProperties' : prefix=dynamic.thread.pool.config, ignoreInvalidFields=false, ignoreUnknownFields=false; nested exception is org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'dynamic.thread.pool.config' to top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfigProperties
+24-09-15.12:07:28.053 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+24-09-15.12:07:28.073 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+24-09-15.12:07:28.089 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Binding to target [Bindable@718ad3a6 type = top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfigProperties, value = 'provided', annotations = array<Annotation>[@org.springframework.boot.context.properties.ConfigurationProperties(ignoreInvalidFields=false, ignoreUnknownFields=false, prefix="dynamic.thread.pool.config", value="dynamic.thread.pool.config")]] failed:
+
+    Property: dynamic.thread.pool.config.enabled
+    Value: "true"
+    Origin: class path resource [application-dev.yml] - 21:18
+    Reason: The elements [dynamic.thread.pool.config.enabled] were left unbound.
+
+Action:
+
+Update your application's configuration
+
+24-09-15.12:10:26.859 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 26368 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:10:26.860 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:10:27.452 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:10:27.454 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:10:27.470 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+24-09-15.12:10:27.865 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:10:27.866 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:10:27.866 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:10:27.866 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:10:27.870 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:10:27.877 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:10:27.877 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:10:27.877 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:10:27.983 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:10:27.983 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1088 ms
+24-09-15.12:10:28.609 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:10:28.781 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:10:28.955 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:10:29.030 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:10:29.367 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:10:29.433 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:10:29.436 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:10:29.448 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:10:29.449 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.12:10:29.450 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisRegistry' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]: Unsatisfied dependency expressed through method 'redisRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.redisson.api.RedissonClient' available: expected single matching bean but found 2: redisson,dynamicThreadRedissonClient
+24-09-15.12:10:33.636 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+24-09-15.12:10:33.648 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+24-09-15.12:10:33.663 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisRegistry in top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig required a single bean, but 2 were found:
+	- redisson: defined by method 'redisson' in class path resource [org/redisson/spring/starter/RedissonAutoConfigurationV2.class]
+	- dynamicThreadRedissonClient: defined by method 'redissonClient' in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+24-09-15.12:13:42.336 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 2600 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:13:42.337 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:13:42.924 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:13:42.926 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:13:42.943 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+24-09-15.12:13:43.330 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:13:43.331 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:13:43.331 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:13:43.331 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:13:43.335 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:13:43.342 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:13:43.342 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:13:43.343 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:13:43.447 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:13:43.447 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1075 ms
+24-09-15.12:13:44.093 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:13:44.263 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:13:44.437 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:13:44.506 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:13:44.834 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:13:44.892 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:13:44.895 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:13:44.907 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:13:44.908 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.12:13:44.909 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisRegistry' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]: Unsatisfied dependency expressed through method 'redisRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.redisson.api.RedissonClient' available: expected single matching bean but found 2: redisson,dynamicThreadRedissonClient
+24-09-15.12:13:49.060 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+24-09-15.12:13:49.073 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+24-09-15.12:13:49.087 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisRegistry in top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig required a single bean, but 2 were found:
+	- redisson: defined by method 'redisson' in class path resource [org/redisson/spring/starter/RedissonAutoConfigurationV2.class]
+	- dynamicThreadRedissonClient: defined by method 'redissonClient' in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+24-09-15.12:26:12.344 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 29868 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:26:12.345 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:26:12.943 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:26:12.945 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:26:12.961 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+24-09-15.12:26:13.362 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:26:13.362 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:26:13.362 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:26:13.363 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:26:13.367 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:26:13.374 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:26:13.374 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:26:13.374 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:26:13.483 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:26:13.483 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1100 ms
+24-09-15.12:26:14.132 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:26:14.299 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:26:14.478 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:26:14.537 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:26:14.868 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:26:14.925 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:26:14.928 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:26:14.941 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:26:14.941 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.12:26:14.942 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dynamicThreadPoolRegistry' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]: Unsatisfied dependency expressed through method 'redisRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.redisson.api.RedissonClient' available: expected single matching bean but found 2: redisson,dynamicThreadRedissonClient
+24-09-15.12:26:19.127 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+24-09-15.12:26:19.139 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+24-09-15.12:26:19.153 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisRegistry in top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig required a single bean, but 2 were found:
+	- redisson: defined by method 'redisson' in class path resource [org/redisson/spring/starter/RedissonAutoConfigurationV2.class]
+	- dynamicThreadRedissonClient: defined by method 'redissonClient' in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+24-09-15.12:27:32.339 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 25420 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:27:32.340 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:27:32.929 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:27:32.931 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:27:32.947 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+24-09-15.12:27:33.336 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:27:33.337 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:27:33.337 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:27:33.337 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:27:33.341 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:27:33.348 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:27:33.348 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:27:33.348 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:27:33.460 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:27:33.460 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1085 ms
+24-09-15.12:27:34.096 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:27:34.273 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:27:34.452 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:27:34.515 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:27:34.846 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:27:34.902 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:27:34.905 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:27:34.918 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:27:34.918 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.12:27:35.053 [main            ] INFO  DynamicThreadPoolAutoConfig - Thread pool info: ["threadPoolExecutor01","threadPoolExecutor02"]
+24-09-15.12:27:35.076 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-15.12:27:35.104 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
+24-09-15.12:27:35.116 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
+24-09-15.12:27:35.125 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+24-09-15.12:27:35.135 [main            ] INFO  Application            - Started Application in 3.181 seconds (JVM running for 3.849)
+24-09-15.12:27:35.475 [RMI TCP Connection(3)-172.29.8.194] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-15.12:27:35.475 [RMI TCP Connection(3)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-15.12:27:35.477 [RMI TCP Connection(3)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 2 ms
+24-09-15.12:27:49.128 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
+24-09-15.12:27:51.019 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"}
+24-09-15.12:27:52.576 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
+24-09-15.12:28:12.467 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
+24-09-15.12:28:12.470 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"}
+24-09-15.12:28:12.475 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
+24-09-15.12:30:01.511 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 5680 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:30:01.512 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:30:02.096 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:30:02.098 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:30:02.115 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+24-09-15.12:30:02.508 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:30:02.509 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:30:02.509 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:30:02.509 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:30:02.513 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:30:02.520 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:30:02.520 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:30:02.521 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:30:02.624 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:30:02.625 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1080 ms
+24-09-15.12:30:03.279 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:30:03.450 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:30:03.630 [redisson-netty-1-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:30:03.688 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:30:04.016 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:30:04.073 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:30:04.076 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:30:04.087 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:30:04.088 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.12:30:04.089 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'redisRegistry' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]: Unsatisfied dependency expressed through method 'redisRegistry' parameter 0; nested exception is org.springframework.beans.factory.NoUniqueBeanDefinitionException: No qualifying bean of type 'org.redisson.api.RedissonClient' available: expected single matching bean but found 2: redisson,dynamicThreadRedissonClient
+24-09-15.12:30:08.294 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+24-09-15.12:30:08.307 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+24-09-15.12:30:08.321 [main            ] ERROR LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of method redisRegistry in top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig required a single bean, but 2 were found:
+	- redisson: defined by method 'redisson' in class path resource [org/redisson/spring/starter/RedissonAutoConfigurationV2.class]
+	- dynamicThreadRedissonClient: defined by method 'redissonClient' in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/DynamicThreadPoolAutoConfig.class]
+
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+24-09-15.12:31:12.754 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 15904 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-15.12:31:12.755 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-15.12:31:13.399 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.12:31:13.401 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.12:31:13.418 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+24-09-15.12:31:13.828 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-15.12:31:13.828 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-15.12:31:13.829 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-15.12:31:13.829 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-15.12:31:13.833 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-15.12:31:13.841 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-15.12:31:13.842 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-15.12:31:13.842 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-15.12:31:13.951 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-15.12:31:13.951 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1158 ms
+24-09-15.12:31:14.628 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:31:14.798 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:31:14.983 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:31:15.062 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:31:15.399 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.12:31:15.455 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.12:31:15.458 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:31:15.470 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.12:31:15.471 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.12:31:15.579 [main            ] INFO  DynamicThreadPoolAutoConfig - Thread pool info: ["threadPoolExecutor01","threadPoolExecutor02"]
+24-09-15.12:31:15.587 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-15.12:31:15.608 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
+24-09-15.12:31:15.624 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
+24-09-15.12:31:15.633 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+24-09-15.12:31:15.643 [main            ] INFO  Application            - Started Application in 3.319 seconds (JVM running for 4.039)
+24-09-15.12:31:15.808 [RMI TCP Connection(2)-172.29.8.194] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-15.12:31:15.808 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-15.12:31:15.809 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
+24-09-15.12:31:20.046 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
+24-09-15.12:31:20.050 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"}
+24-09-15.12:31:20.052 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
