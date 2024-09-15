@@ -1,4 +1,4 @@
-package top.kangyaocoding.dynamic.thread.pool.test;
+package top.kangyaocoding.dynamic.thread.pool.sdk.test;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.SpringApplication;

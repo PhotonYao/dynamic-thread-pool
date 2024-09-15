@@ -1,4 +1,4 @@
-package top.kangyaocoding.dynamic.thread.pool.test.config;
+package top.kangyaocoding.dynamic.thread.pool.sdk.test.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

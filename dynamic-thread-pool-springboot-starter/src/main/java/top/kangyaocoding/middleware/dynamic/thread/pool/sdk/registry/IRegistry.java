@@ -12,5 +12,6 @@ import java.util.List;
  */
 public interface IRegistry {
     void reportThreadPool(List<ThreadPoolConfigEntity> threadPoolConfigEntities);
+
     void reportThreadPoolConfigParameter(ThreadPoolConfigEntity threadPoolConfigEntity);
 }
