@@ -1,4 +1,4 @@
-package top.kangyaocoding.dynamic.thread.pool.sdk.test;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.test;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;

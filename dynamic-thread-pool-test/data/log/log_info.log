@@ -34,7 +34,7 @@ Action:
 
 Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
 
-24-09-15.13:47:11.416 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5149d738] to prepare test instance [top.kangyaocoding.dynamic.thread.pool.sdk.test.ApiTest@4ea43d4d]
+24-09-15.13:47:11.416 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@5149d738] to prepare test instance [test.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.ApiTest@4ea43d4d]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -163,7 +163,7 @@ Action:
 
 Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
 
-24-09-15.14:02:39.494 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@543295b0] to prepare test instance [top.kangyaocoding.dynamic.thread.pool.sdk.test.ApiTest@301d84f6]
+24-09-15.14:02:39.494 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@543295b0] to prepare test instance [test.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.ApiTest@301d84f6]
 java.lang.IllegalStateException: Failed to load ApplicationContext
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:98)
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:124)
@@ -284,8 +284,8 @@ Caused by: org.springframework.beans.factory.NoUniqueBeanDefinitionException: No
 24-09-15.14:04:25.521 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
 24-09-15.14:04:25.568 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
 24-09-15.14:04:25.580 [main            ] INFO  ApiTest                - Started ApiTest in 23.412 seconds (JVM running for 24.347)
-24-09-15.14:04:25.679 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5032714f] to prepare test instance [top.kangyaocoding.dynamic.thread.pool.sdk.test.ApiTest@716e6fa5]
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'top.kangyaocoding.dynamic.thread.pool.sdk.test.ApiTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'dynamicThreadPoolRedisTopic': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+24-09-15.14:04:25.679 [main            ] ERROR TestContextManager     - Caught exception while allowing TestExecutionListener [org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5032714f] to prepare test instance [test.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.ApiTest@716e6fa5]
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'test.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.ApiTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'dynamicThreadPoolRedisTopic': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
 	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:332)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431)
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireBeanProperties(AbstractAutowireCapableBeanFactory.java:417)
@@ -328,3 +328,30 @@ Caused by: org.springframework.beans.factory.BeanCreationNotAllowedException: Er
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
 	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:329)
 	... 29 common frames omitted
+24-09-15.15:00:30.718 [main            ] INFO  ApiTest                - Starting ApiTest using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 4672 (started by HarryKL in E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test)
+24-09-15.15:00:30.720 [main            ] INFO  ApiTest                - The following 1 profile is active: "dev"
+24-09-15.15:00:31.333 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-15.15:00:31.335 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-15.15:00:31.353 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+24-09-15.15:00:32.823 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.15:00:33.036 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.15:00:33.221 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.15:00:33.297 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-15.15:00:33.727 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-15.15:00:33.792 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-15.15:00:33.796 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-15.15:00:33.809 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
+24-09-15.15:00:33.810 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
+24-09-15.15:00:33.971 [main            ] INFO  DynamicThreadPoolAutoConfig - 线程池信息：["threadPoolExecutor01","threadPoolExecutor02"]
+24-09-15.15:00:34.006 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-15.15:00:34.042 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+24-09-15.15:00:34.050 [main            ] INFO  ApiTest                - Started ApiTest in 3.72 seconds (JVM running for 4.509)
+24-09-15.15:00:34.427 [redisson-6-12   ] INFO  ThreadPoolAdjustListener - 线程池动态调整配置。线程池名称：threadPoolExecutor01，核心线程数：0，最大线程数：100
+24-09-15.15:00:34.427 [redisson-6-12   ] INFO  DynamicThreadPoolService - 线程池配置更新完成
+24-09-15.15:00:34.451 [redisson-6-12   ] INFO  ThreadPoolAdjustListener - 线程池动态调整配置完成。线程池配置：{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":0,"maximumPoolSize":100,"poolSize":100,"queueSize":0,"remainingCapacity":0,"threadPoolName":"threadPoolExecutor01"}
+24-09-15.15:00:40.017 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":0,"maximumPoolSize":100,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
+24-09-15.15:00:40.019 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":0,"maximumPoolSize":100,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"}
+24-09-15.15:00:40.021 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
+24-09-15.15:01:00.009 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":0,"maximumPoolSize":100,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
+24-09-15.15:01:00.010 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":0,"maximumPoolSize":100,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor01"}
+24-09-15.15:01:00.010 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}

@@ -1,4 +1,4 @@
-package top.kangyaocoding.dynamic.thread.pool.sdk.test.config;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.test.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

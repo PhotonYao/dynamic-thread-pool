@@ -9,7 +9,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>dynamic-thread-pool-test</artifactId>
+    <artifactId>dynamic-thread-pool-admin</artifactId>
 
     <packaging>jar</packaging>
 
@@ -54,17 +54,15 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
-
-        <!-- 线程组件 -->
         <dependency>
-            <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
-            <artifactId>dynamic-thread-pool-springboot-starter</artifactId>
-            <version>1.0</version>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>3.26.0</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>dynamic-thread-pool-test-app</finalName>
+        <finalName>dynamic-thread-pool-admin-app</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -100,11 +98,10 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>top.kangyaocoding.middleware.dynamic.thread.pool.sdk.test.Application</mainClass>
+                    <mainClass>top.kangyaocoding.middleware.dynamic.thread.pool.sdk.Application</mainClass>
                     <layout>JAR</layout>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
