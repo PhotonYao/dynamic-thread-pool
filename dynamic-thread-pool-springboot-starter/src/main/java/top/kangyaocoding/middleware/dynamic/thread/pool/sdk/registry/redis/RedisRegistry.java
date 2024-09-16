@@ -2,6 +2,7 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.redis;
 
 import org.redisson.api.RBucket;
 import org.redisson.api.RList;
+import org.redisson.api.RMap;
 import org.redisson.api.RedissonClient;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.vo.RegistryEnumVO;
@@ -33,12 +34,13 @@ public class RedisRegistry implements IRegistry {
      */
     @Override
     public void reportThreadPool(List<ThreadPoolConfigEntity> threadPoolConfigEntities) {
-        // 获取或创建一个Redisson的List对象，用于存储线程池配置
-        RList<ThreadPoolConfigEntity> list = redissonClient.getList(RegistryEnumVO.THREAD_POOL_CONFIG_LIST_KEY.getKey());
-        // 清空列表，确保之后的添加操作是全新的配置
-        list.delete();
-        // 将新的线程池配置实体列表添加到Redisson的列表中
-        list.addAll(threadPoolConfigEntities);
+        // 采用 Hash 存储，避免重复
+        RMap<String, ThreadPoolConfigEntity> map = redissonClient.getMap(RegistryEnumVO.THREAD_POOL_CONFIG_LIST_KEY.getKey());
+        for (ThreadPoolConfigEntity threadPoolConfigEntity : threadPoolConfigEntities) {
+            String threadPoolName = threadPoolConfigEntity.getThreadPoolName();
+            // 直接调用 put 即可覆盖已有值
+            map.put(threadPoolName, threadPoolConfigEntity);
+        }
     }
 
     /**

@@ -1,7 +1,7 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger;
 
 import com.alibaba.fastjson2.JSON;
-import org.redisson.api.RList;
+import org.redisson.api.RMap;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
@@ -11,6 +11,7 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,11 +39,16 @@ public class DynamicThreadPoolController {
     @RequestMapping(value = "query_thread_pool_list", method = RequestMethod.GET)
     public Response<List<ThreadPoolConfigEntity>> queryThreadPoolList() {
         try {
-            RList<ThreadPoolConfigEntity> cacheList = redissonClient.getList("THREAD_POOL_CONFIG_LIST_KEY");
+            // 获取 Hash 存储的线程池配置信息
+            RMap<String, ThreadPoolConfigEntity> cacheMap = redissonClient.getMap("THREAD_POOL_CONFIG_LIST_KEY");
+
+            // 获取 Map 中的所有值，并转为 List
+            List<ThreadPoolConfigEntity> configList = new ArrayList<>(cacheMap.values());
+
             return Response.<List<ThreadPoolConfigEntity>>builder()
                     .code(Response.Code.SUCCESS.getCode())
                     .info(Response.Code.SUCCESS.getInfo())
-                    .data(cacheList.readAll())
+                    .data(configList)
                     .build();
         } catch (Exception e) {
             logger.error("查询线程池数据异常", e);
@@ -52,6 +58,7 @@ public class DynamicThreadPoolController {
                     .build();
         }
     }
+
 
     /**
      * 查询线程池配置
