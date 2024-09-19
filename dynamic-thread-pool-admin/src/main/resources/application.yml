@@ -2,4 +2,5 @@ spring:
   application:
     name: dynamic-thread-pool-admin-app
   profiles:
+    #    active: prod
     active: dev
