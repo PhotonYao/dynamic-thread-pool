@@ -1,0 +1,1 @@
+docker build -f ./Dockerfile -t kangyaocoding/dynamic-tp-admin:1.0 .

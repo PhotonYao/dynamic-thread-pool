@@ -1,0 +1,18 @@
+version: "3"
+services:
+  dynamic-tp-admin:
+    container_name: dynamic-tp-admin
+    image: registry.cn-hangzhou.aliyuncs.com/kangyaocoding/dynamic-tp-admin:1.0
+    ports:
+      - "8092:8092"
+    environment:
+      CROSS_ORIGIN: "https://ai.kangyaocoding.top,http://tp.kangyaocoding.top"
+      REDIS_HOST: 172.18.0.5
+      REDIS_PASSWORD: redis_4Y3D5G
+      REDIS_PORT: 6379
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true
