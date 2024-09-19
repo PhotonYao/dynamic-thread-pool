@@ -1,211 +1,54 @@
-24-09-16.13:59:38.656 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 24908 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
-24-09-16.13:59:38.659 [main            ] INFO  Application            - The following 1 profile is active: "dev"
-24-09-16.13:59:39.311 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-24-09-16.13:59:39.314 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-24-09-16.13:59:39.334 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-24-09-16.13:59:39.776 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
-24-09-16.13:59:39.776 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
-24-09-16.13:59:39.777 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
-24-09-16.13:59:39.777 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-24-09-16.13:59:39.794 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
-24-09-16.13:59:39.802 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
-24-09-16.13:59:39.802 [main            ] INFO  StandardService        - Starting service [Tomcat]
-24-09-16.13:59:39.802 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
-24-09-16.13:59:39.910 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
-24-09-16.13:59:39.910 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1205 ms
-24-09-16.13:59:40.623 [main            ] INFO  Version                - Redisson 3.31.0
-24-09-16.13:59:40.811 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
-24-09-16.13:59:41.006 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
-24-09-16.13:59:41.061 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
-24-09-16.13:59:41.408 [main            ] INFO  Version                - Redisson 3.31.0
-24-09-16.13:59:41.471 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
-24-09-16.13:59:41.474 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
-24-09-16.13:59:41.487 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
-24-09-16.13:59:41.488 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
-24-09-16.13:59:41.665 [main            ] INFO  DynamicThreadPoolAutoConfig - 线程池信息：["threadPoolExecutor01","threadPoolExecutor02"]
-24-09-16.13:59:41.694 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-24-09-16.13:59:41.720 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
-24-09-16.13:59:41.735 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
-24-09-16.13:59:41.744 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-24-09-16.13:59:41.753 [main            ] INFO  Application            - Started Application in 3.626 seconds (JVM running for 4.474)
-24-09-16.13:59:47.221 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 18928 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
-24-09-16.13:59:47.223 [main            ] INFO  Application            - The following 1 profile is active: "dev"
-24-09-16.13:59:47.746 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-24-09-16.13:59:47.748 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-24-09-16.13:59:47.764 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-24-09-16.13:59:48.087 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
-24-09-16.13:59:48.087 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
-24-09-16.13:59:48.087 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
-24-09-16.13:59:48.087 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-24-09-16.13:59:48.092 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
-24-09-16.13:59:48.098 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
-24-09-16.13:59:48.099 [main            ] INFO  StandardService        - Starting service [Tomcat]
-24-09-16.13:59:48.099 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
-24-09-16.13:59:48.202 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
-24-09-16.13:59:48.203 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 948 ms
-24-09-16.13:59:48.520 [main            ] INFO  Version                - Redisson 3.26.0
-24-09-16.13:59:48.803 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
-24-09-16.13:59:48.819 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
-24-09-16.13:59:49.429 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-24-09-16.13:59:49.445 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
-24-09-16.13:59:49.455 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
-24-09-16.13:59:49.467 [main            ] INFO  Application            - Started Application in 2.609 seconds (JVM running for 3.39)
-24-09-16.13:59:49.966 [RMI TCP Connection(3)-172.29.8.194] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
-24-09-16.13:59:49.967 [RMI TCP Connection(3)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
-24-09-16.13:59:49.968 [RMI TCP Connection(3)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
-24-09-16.14:00:00.027 [pool-4-thread-1 ] ERROR TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
-org.redisson.client.RedisException: WRONGTYPE Operation against a key holding the wrong kind of value script: 8919eb76e65d79f3402d25a746d81a6ef0a57704, on @user_script:1.. channel: [id: 0xc92e2cc4, L:/127.0.0.1:63845 - R:localhost/127.0.0.1:6379] command: (EVAL), promise: java.util.concurrent.CompletableFuture@5898b05f[Not completed, 1 dependents], params: [local v = redis.call('hget', KEYS[1], ARGV[1]); redis.call('hset', KEYS[1], ARGV[1], ARGV[2]); return v, 1, THREAD_POOL_CONFIG_LIST_KEY, PooledUnsafeDirectByteBuf(ridx: 0, widx: 22, cap: 256), PooledUnsafeDirectByteBuf(ridx: 0, widx: 332, cap: 512)]
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:418)
-	at org.redisson.client.handler.CommandDecoder.decodeCommand(CommandDecoder.java:216)
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:144)
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:120)
-	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529)
-	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:366)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-24-09-16.14:00:20.004 [pool-4-thread-1 ] ERROR TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
-org.redisson.client.RedisException: WRONGTYPE Operation against a key holding the wrong kind of value script: 8919eb76e65d79f3402d25a746d81a6ef0a57704, on @user_script:1.. channel: [id: 0x22830951, L:/127.0.0.1:63846 - R:localhost/127.0.0.1:6379] command: (EVAL), promise: java.util.concurrent.CompletableFuture@568f239b[Not completed, 1 dependents], params: [local v = redis.call('hget', KEYS[1], ARGV[1]); redis.call('hset', KEYS[1], ARGV[1], ARGV[2]); return v, 1, THREAD_POOL_CONFIG_LIST_KEY, PooledUnsafeDirectByteBuf(ridx: 0, widx: 22, cap: 256), PooledUnsafeDirectByteBuf(ridx: 0, widx: 333, cap: 512)]
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:418)
-	at org.redisson.client.handler.CommandDecoder.decodeCommand(CommandDecoder.java:216)
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:144)
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:120)
-	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529)
-	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:366)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-24-09-16.14:00:40.004 [pool-4-thread-1 ] ERROR TaskUtils$LoggingErrorHandler - Unexpected error occurred in scheduled task
-org.redisson.client.RedisException: WRONGTYPE Operation against a key holding the wrong kind of value script: 8919eb76e65d79f3402d25a746d81a6ef0a57704, on @user_script:1.. channel: [id: 0x46faea2d, L:/127.0.0.1:63847 - R:localhost/127.0.0.1:6379] command: (EVAL), promise: java.util.concurrent.CompletableFuture@363f598[Not completed, 1 dependents], params: [local v = redis.call('hget', KEYS[1], ARGV[1]); redis.call('hset', KEYS[1], ARGV[1], ARGV[2]); return v, 1, THREAD_POOL_CONFIG_LIST_KEY, PooledUnsafeDirectByteBuf(ridx: 0, widx: 22, cap: 256), SimpleLeakAwareByteBuf(PooledUnsafeDirectByteBuf(ridx: 0, widx: 333, cap: 512))]
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:418)
-	at org.redisson.client.handler.CommandDecoder.decodeCommand(CommandDecoder.java:216)
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:144)
-	at org.redisson.client.handler.CommandDecoder.decode(CommandDecoder.java:120)
-	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:529)
-	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:366)
-	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
-	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
-	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
-	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
-	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:788)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
-	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
-	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
-	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
-	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
-	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-24-09-16.14:02:25.965 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 20180 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
-24-09-16.14:02:25.967 [main            ] INFO  Application            - The following 1 profile is active: "dev"
-24-09-16.14:02:26.505 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-24-09-16.14:02:26.508 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-24-09-16.14:02:26.523 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
-24-09-16.14:02:26.903 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
-24-09-16.14:02:26.904 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
-24-09-16.14:02:26.904 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
-24-09-16.14:02:26.904 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-24-09-16.14:02:26.909 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
-24-09-16.14:02:26.915 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
-24-09-16.14:02:26.915 [main            ] INFO  StandardService        - Starting service [Tomcat]
-24-09-16.14:02:26.915 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
-24-09-16.14:02:27.015 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
-24-09-16.14:02:27.015 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1017 ms
-24-09-16.14:02:27.601 [main            ] INFO  Version                - Redisson 3.31.0
-24-09-16.14:02:27.765 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
-24-09-16.14:02:27.934 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
-24-09-16.14:02:27.987 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
-24-09-16.14:02:28.301 [main            ] INFO  Version                - Redisson 3.31.0
-24-09-16.14:02:28.365 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
-24-09-16.14:02:28.368 [redisson-netty-5-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
-24-09-16.14:02:28.379 [redisson-netty-5-24] INFO  ConnectionsHolder      - 10 connections initialized for localhost/127.0.0.1:6379
-24-09-16.14:02:28.380 [main            ] INFO  DynamicThreadPoolAutoConfig - 动态线程池，注册器（redis）链接初始化完成。localhost 64 true
-24-09-16.14:02:28.487 [main            ] INFO  DynamicThreadPoolAutoConfig - 线程池信息：["threadPoolExecutor01","threadPoolExecutor02"]
-24-09-16.14:02:28.510 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-24-09-16.14:02:28.531 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
-24-09-16.14:02:28.542 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
-24-09-16.14:02:28.551 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
-24-09-16.14:02:28.559 [main            ] INFO  Application            - Started Application in 2.954 seconds (JVM running for 3.497)
-24-09-16.14:02:40.067 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":406,"queueType":"LinkedBlockingQueue","remainingCapacity":4594,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:02:40.070 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":406,"queueType":"LinkedBlockingQueue","remainingCapacity":4594,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:02:40.073 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
-24-09-16.14:03:00.029 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":1103,"queueType":"LinkedBlockingQueue","remainingCapacity":3897,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:03:00.032 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":1103,"queueType":"LinkedBlockingQueue","remainingCapacity":3897,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:03:00.035 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
-24-09-16.14:03:20.003 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":1817,"queueType":"LinkedBlockingQueue","remainingCapacity":3183,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:03:20.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":1817,"queueType":"LinkedBlockingQueue","remainingCapacity":3183,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:03:20.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
-24-09-16.14:03:31.538 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 24848 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
-24-09-16.14:03:31.540 [main            ] INFO  Application            - The following 1 profile is active: "dev"
-24-09-16.14:03:32.074 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
-24-09-16.14:03:32.076 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-24-09-16.14:03:32.092 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
-24-09-16.14:03:32.424 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
-24-09-16.14:03:32.425 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
-24-09-16.14:03:32.425 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
-24-09-16.14:03:32.425 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-24-09-16.14:03:32.429 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
-24-09-16.14:03:32.435 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
-24-09-16.14:03:32.436 [main            ] INFO  StandardService        - Starting service [Tomcat]
-24-09-16.14:03:32.436 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
-24-09-16.14:03:32.534 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
-24-09-16.14:03:32.534 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 960 ms
-24-09-16.14:03:32.817 [main            ] INFO  Version                - Redisson 3.26.0
-24-09-16.14:03:33.108 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
-24-09-16.14:03:33.122 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
-24-09-16.14:03:33.711 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
-24-09-16.14:03:33.728 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
-24-09-16.14:03:33.738 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
-24-09-16.14:03:33.750 [main            ] INFO  Application            - Started Application in 2.579 seconds (JVM running for 3.118)
-24-09-16.14:03:33.832 [RMI TCP Connection(2)-172.29.8.194] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
-24-09-16.14:03:33.832 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
-24-09-16.14:03:33.833 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
-24-09-16.14:03:40.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":2498,"queueType":"LinkedBlockingQueue","remainingCapacity":2502,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:03:40.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":2498,"queueType":"LinkedBlockingQueue","remainingCapacity":2502,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:03:40.005 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
-24-09-16.14:04:00.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":3166,"queueType":"LinkedBlockingQueue","remainingCapacity":1834,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:04:00.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":20,"queueSize":3166,"queueType":"LinkedBlockingQueue","remainingCapacity":1834,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:04:00.005 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
-24-09-16.14:04:15.366 [http-nio-8089-exec-4] INFO  DynamicThreadPoolController - 修改线程池配置开始 dynamic-thread-pool-test-app threadPoolExecutor01 {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":14,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"remainingCapacity":0,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:04:15.371 [http-nio-8089-exec-4] INFO  DynamicThreadPoolController - 修改线程池配置完成 dynamic-thread-pool-test-app threadPoolExecutor01
-24-09-16.14:04:15.374 [redisson-6-12   ] INFO  ThreadPoolAdjustListener - 线程池动态调整配置。线程池名称：threadPoolExecutor01，核心线程数：14，最大线程数：50
-24-09-16.14:04:15.374 [redisson-6-12   ] INFO  DynamicThreadPoolService - 线程池配置更新完成
-24-09-16.14:04:15.377 [redisson-6-12   ] INFO  ThreadPoolAdjustListener - 线程池动态调整配置完成。线程池配置：{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":14,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"remainingCapacity":0,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:04:20.003 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":14,"maximumPoolSize":50,"poolSize":20,"queueSize":3861,"queueType":"LinkedBlockingQueue","remainingCapacity":1139,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:04:20.003 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":14,"maximumPoolSize":50,"poolSize":20,"queueSize":3861,"queueType":"LinkedBlockingQueue","remainingCapacity":1139,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:04:20.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
-24-09-16.14:04:40.003 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池信息: [{"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":14,"maximumPoolSize":50,"poolSize":20,"queueSize":4548,"queueType":"LinkedBlockingQueue","remainingCapacity":452,"threadPoolName":"threadPoolExecutor01"},{"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}]
-24-09-16.14:04:40.003 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":20,"appName":"dynamic-thread-pool-test-app","corePoolSize":14,"maximumPoolSize":50,"poolSize":20,"queueSize":4548,"queueType":"LinkedBlockingQueue","remainingCapacity":452,"threadPoolName":"threadPoolExecutor01"}
-24-09-16.14:04:40.004 [pool-4-thread-1 ] INFO  ThreadPoolReportJob    - 动态线程池上报，线程池参数信息: {"activeCount":0,"appName":"dynamic-thread-pool-test-app","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"queueType":"LinkedBlockingQueue","remainingCapacity":5000,"threadPoolName":"threadPoolExecutor02"}
+24-09-19.10:33:02.144 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 29108 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-19.10:33:02.146 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-19.10:33:02.764 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-19.10:33:02.767 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-19.10:33:02.788 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+24-09-19.10:33:03.785 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-19.10:33:03.786 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-19.10:33:03.786 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-19.10:33:03.786 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-19.10:33:03.803 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-19.10:33:03.811 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-19.10:33:03.812 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-19.10:33:03.812 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-19.10:33:03.916 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-19.10:33:03.917 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1732 ms
+24-09-19.10:33:04.236 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-19.10:33:05.572 [redisson-netty-1-11] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-19.10:33:05.590 [redisson-netty-1-19] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-19.10:33:06.254 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-19.10:33:06.270 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-19.10:33:06.283 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-19.10:33:06.296 [main            ] INFO  Application            - Started Application in 4.567 seconds (JVM running for 5.484)
+24-09-19.10:33:06.587 [RMI TCP Connection(3)-172.29.8.153] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-19.10:33:06.587 [RMI TCP Connection(3)-172.29.8.153] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-19.10:33:06.588 [RMI TCP Connection(3)-172.29.8.153] INFO  DispatcherServlet      - Completed initialization in 1 ms
+24-09-19.10:35:00.843 [http-nio-8089-exec-6] INFO  DynamicThreadPoolController - 修改线程池配置开始 creative-ai-hub-data threadPoolExecutor {"activeCount":0,"appName":"creative-ai-hub-data","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"remainingCapacity":0,"threadPoolName":"threadPoolExecutor"}
+24-09-19.10:35:00.848 [http-nio-8089-exec-6] INFO  DynamicThreadPoolController - 修改线程池配置完成 creative-ai-hub-data threadPoolExecutor
+24-09-19.10:42:33.792 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 29056 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-19.10:42:33.794 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-19.10:42:34.314 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-19.10:42:34.316 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-19.10:42:34.332 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+24-09-19.10:42:34.645 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-19.10:42:34.646 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-19.10:42:34.646 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-19.10:42:34.646 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-19.10:42:34.650 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-19.10:42:34.656 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-19.10:42:34.656 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-19.10:42:34.657 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-19.10:42:34.752 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-19.10:42:34.752 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 926 ms
+24-09-19.10:42:35.024 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-19.10:42:35.302 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-19.10:42:35.315 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-19.10:42:35.865 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-19.10:42:35.881 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-19.10:42:35.891 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-19.10:42:35.902 [main            ] INFO  Application            - Started Application in 2.481 seconds (JVM running for 3.012)
+24-09-19.10:42:36.066 [RMI TCP Connection(1)-172.29.8.153] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-19.10:42:36.066 [RMI TCP Connection(1)-172.29.8.153] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-19.10:42:36.067 [RMI TCP Connection(1)-172.29.8.153] INFO  DispatcherServlet      - Completed initialization in 1 ms
+24-09-19.10:43:04.628 [http-nio-8089-exec-4] INFO  DynamicThreadPoolController - 修改线程池配置开始 creative-ai-hub-data threadPoolExecutor {"activeCount":0,"appName":"creative-ai-hub-data","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"remainingCapacity":0,"threadPoolName":"threadPoolExecutor"}
+24-09-19.10:43:04.640 [http-nio-8089-exec-4] INFO  DynamicThreadPoolController - 修改线程池配置完成 creative-ai-hub-data threadPoolExecutor

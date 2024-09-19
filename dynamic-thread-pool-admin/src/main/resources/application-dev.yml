@@ -1,6 +1,11 @@
 server:
   port: 8089
 
+app:
+  config:
+    api-version: v1
+    cross-origin: "*"
+
 redis:
   sdk:
     config:

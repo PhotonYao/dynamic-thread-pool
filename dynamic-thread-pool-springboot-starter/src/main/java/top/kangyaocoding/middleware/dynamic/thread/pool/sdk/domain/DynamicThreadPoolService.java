@@ -1,8 +1,7 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain;
 
 import com.alibaba.fastjson2.JSON;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
 
 import java.util.ArrayList;
@@ -17,9 +16,8 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @author K·Herbert
  * @since 2024-09-15 00:36
  */
+@Slf4j
 public class DynamicThreadPoolService implements IDynamicThreadPoolService {
-
-    private final Logger logger = LoggerFactory.getLogger(DynamicThreadPoolService.class);
 
     private final String applicationName;
     private final Map<String, ThreadPoolExecutor> threadPoolExecutorMap;
@@ -65,8 +63,8 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
         }
 
         // 如果日志级别为debug，则记录线程池配置列表信息
-        if (logger.isDebugEnabled()) {
-            logger.info("动态线程池，配置查询，应用名: {} 池化配置列表: {}", applicationName, JSON.toJSONString(threadPoolVOS));
+        if (log.isDebugEnabled()) {
+            log.info("动态线程池，配置查询，应用名: {} 池化配置列表: {}", applicationName, JSON.toJSONString(threadPoolVOS));
         }
 
         // 返回线程池配置列表
@@ -89,7 +87,7 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
         // 检查获取的线程池实例是否为null
         if (null == threadPoolExecutor) {
             // 如果线程池不存在，记录警告日志
-            logger.warn("动态线程池，配置查询，线程池不存在，参数: {}", JSON.toJSONString(threadPoolName));
+            log.warn("动态线程池，配置查询，线程池不存在，参数: {}", JSON.toJSONString(threadPoolName));
             // 返回一个新的ThreadPoolConfigEntity对象，包含应用名和线程池名，其他信息为空或默认值
             return new ThreadPoolConfigEntity(applicationName, threadPoolName);
         }
@@ -112,9 +110,9 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
         threadPoolVO.setRemainingCapacity(threadPoolExecutor.getQueue().remainingCapacity());
 
         // 检查是否启用了调试日志
-        if (logger.isDebugEnabled()) {
+        if (log.isDebugEnabled()) {
             // 如果启用调试，记录详细的配置信息
-            logger.info("动态线程池，配置查询，应用名: {} 线程名: {} 池化配置: {}", applicationName, threadPoolName, JSON.toJSONString(threadPoolVO));
+            log.info("动态线程池，配置查询，应用名: {} 线程名: {} 池化配置: {}", applicationName, threadPoolName, JSON.toJSONString(threadPoolVO));
         }
 
         // 返回封装后的线程池配置信息对象
@@ -133,7 +131,7 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
 
         // 检查输入参数的有效性
         if (null == threadPoolConfigEntity || !applicationName.equals(threadPoolConfigEntity.getAppName())) {
-            logger.warn("动态线程池，配置更新失败，参数不合法，参数: {}", JSON.toJSONString(threadPoolConfigEntity));
+            log.warn("动态线程池，配置更新失败，参数不合法，参数: {}", JSON.toJSONString(threadPoolConfigEntity));
             return false;
         }
 
@@ -142,7 +140,7 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
 
         // 检查线程池实例是否存在
         if (null == threadPoolExecutor) {
-            logger.warn("动态线程池，配置更新失败，线程池不存在，参数: {}", JSON.toJSONString(threadPoolConfigEntity));
+            log.warn("动态线程池，配置更新失败，线程池不存在，参数: {}", JSON.toJSONString(threadPoolConfigEntity));
             return false;
         }
 
@@ -151,7 +149,7 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
         threadPoolExecutor.setMaximumPoolSize(threadPoolConfigEntity.getMaximumPoolSize());
 
         // 记录线程池配置更新完成的日志
-        logger.info("线程池配置更新完成");
+        log.info("线程池配置更新完成");
 
         return true;
     }

@@ -1,5 +1,10 @@
 server:
-  port: 8091
+  port: 8092
+
+app:
+  config:
+    api-version: v1
+    cross-origin: ${CROSS_ORIGIN}
 
 # 线程池配置
 thread:
