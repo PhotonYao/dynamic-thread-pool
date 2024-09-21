@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,9 +16,9 @@ import lombok.NoArgsConstructor;
 @Getter
 public enum DynamicThreadPoolEnum {
 
-    THREAD_POOL_CONFIG_LIST_KEY("dynamic_thread_pool_config_list_key", "动态线程池配置列表"),
-    THREAD_POOL_CONFIG_PARAMETER_LIST_KEY("dynamic_thread_pool_config_parameter_list_key", "动态线程池配置参数列表"),
-    DYNAMIC_THREAD_POOL_REDIS_TOPIC("dynamic_thread_pool_redis_topic", "动态线程池redis主题"),
+    THREAD_POOL_CONFIG_LIST_KEY("THREAD_POOL_CONFIG_LIST_KEY", "动态线程池配置列表"),
+    THREAD_POOL_CONFIG_PARAMETER_LIST_KEY("THREAD_POOL_CONFIG_PARAMETER_LIST_KEY", "动态线程池配置参数列表"),
+    DYNAMIC_THREAD_POOL_REDIS_TOPIC("DYNAMIC_THREAD_POOL_REDIS_TOPIC", "动态线程池redis主题"),
     ;
 
     private String code;

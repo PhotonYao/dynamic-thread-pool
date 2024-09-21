@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.interceptor.JwtAuthenticationInterceptor;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.JwtTokenUtil;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.utils.JwtTokenUtil;
 
 /**
  * 描述: Web 配置
@@ -24,9 +24,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(jwtAuthenticationInterceptor(jwtTokenUtil()))
-                .addPathPatterns("/**") // 拦截所有路径
-                .excludePathPatterns("/api/*/user/login"); // 排除某些路径
+        registry.addInterceptor(jwtAuthenticationInterceptor(jwtTokenUtil())).excludePathPatterns("/**");
+//                .addPathPatterns("/**") // 拦截所有路径
+//                .excludePathPatterns("/api/*/user/login"); // 排除某些路径
     }
 
     @Bean

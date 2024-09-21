@@ -6,7 +6,7 @@
     <parent>
         <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
         <artifactId>dynamic-thread-pool</artifactId>
-        <version>1.0</version>
+        <version>1.2</version>
     </parent>
 
     <artifactId>dynamic-thread-pool-admin</artifactId>
@@ -66,10 +66,6 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
         </dependency>
     </dependencies>
 

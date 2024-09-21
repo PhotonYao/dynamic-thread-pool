@@ -2,9 +2,9 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
 import java.util.List;
 

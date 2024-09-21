@@ -1,6 +1,6 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service;
 
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
 /**
  * 描述: 用户服务接口

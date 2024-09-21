@@ -15,12 +15,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.DynamicThreadPoolService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.IDynamicThreadPoolService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.vo.RegistryEnumVO;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnumVO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.redis.RedisRegistry;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.DynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolAdjustListener;
 
@@ -36,8 +36,8 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 
 @Configuration
-@EnableConfigurationProperties(DynamicThreadPoolAutoConfigProperties.class)
 @EnableScheduling
+@EnableConfigurationProperties(DynamicThreadPoolAutoConfigProperties.class)
 public class DynamicThreadPoolAutoConfig {
 
     private final Logger logger = LoggerFactory.getLogger(DynamicThreadPoolAutoConfig.class);
@@ -86,15 +86,19 @@ public class DynamicThreadPoolAutoConfig {
      * 3. 记录当前所有线程池的 key 信息。
      * 4. 返回一个 DynamicThreadPoolService 实例。
      *
-     * @param applicationContext 应用程序上下文，获取应用程序名称等配置信息。
-     * @param threadPoolExecutorMap 包含应用程序中的线程池执行器的 Map，用于存储多个线程池实例。
+     * @param applicationContext          应用程序上下文，获取应用程序名称等配置信息。
+     * @param threadPoolExecutorMap       包含应用程序中的线程池执行器的 Map，用于存储多个线程池实例。
      * @param dynamicThreadRedissonClient 用于与 Redis 交互的 Redisson 客户端，从 Redis 中获取线程池配置信息。
-     *
      * @return DynamicThreadPoolService 动态线程池服务，包含应用程序名称和线程池执行器信息。
      */
     @Bean("dynamicThreadPoolAService")
-    public DynamicThreadPoolService dynamicThreadPoolAService(ApplicationContext applicationContext, Map<String, ThreadPoolExecutor> threadPoolExecutorMap, RedissonClient dynamicThreadRedissonClient) {
-        applicationName = applicationContext.getEnvironment().getProperty("spring.application.name");
+    public DynamicThreadPoolService dynamicThreadPoolAService(
+            ApplicationContext applicationContext, Map<String,
+            ThreadPoolExecutor> threadPoolExecutorMap,
+            RedissonClient dynamicThreadRedissonClient) {
+
+        applicationName = applicationContext.getEnvironment().
+                getProperty("spring.application.name");
 
         if (StringUtil.isBlank(applicationName)) {
             logger.warn("应用程序名称为 null。您确定已配置应用程序吗？");
@@ -131,7 +135,7 @@ public class DynamicThreadPoolAutoConfig {
      * 它将特定的监听器注册到与动态线程池相关的Redisson主题上
      *
      * @param dynamicThreadRedissonClient Redisson客户端实例，用于与Redis进行通信
-     * @param threadPoolAdjustListener 线程池调整事件的监听器，当收到消息时会被触发
+     * @param threadPoolAdjustListener    线程池调整事件的监听器，当收到消息时会被触发
      * @return RTopic Redisson的主题实例，注册了线程池调整监听器
      */
     @Bean("dynamicThreadPoolRedisTopic")

@@ -1,11 +1,12 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job;
 
+
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.IDynamicThreadPoolService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 
 import java.util.List;
 

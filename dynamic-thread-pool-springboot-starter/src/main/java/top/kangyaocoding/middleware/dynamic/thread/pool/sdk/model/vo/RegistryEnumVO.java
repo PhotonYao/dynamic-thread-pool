@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.vo;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo;
 
 /**
  * 描述: 注册中心枚举值对象

@@ -2,9 +2,9 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.servlet.HandlerInterceptor;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums.ResponseEnum;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.JwtTokenUtil;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.ResponseEnum;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.utils.JwtTokenUtil;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

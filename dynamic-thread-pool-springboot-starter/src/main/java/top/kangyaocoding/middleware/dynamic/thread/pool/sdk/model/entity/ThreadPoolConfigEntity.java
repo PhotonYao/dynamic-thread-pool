@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity;
 
 /**
  * 描述: 线程池配置实体
@@ -6,7 +6,9 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity
  * @author K·Herbert
  * @since 2024-09-15 00:30
  */
+
 public class ThreadPoolConfigEntity {
+
     /**
      * 应用名称
      */

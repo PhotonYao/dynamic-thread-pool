@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model;
 
 import lombok.*;
 

@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums.ResponseEnum;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.ResponseEnum;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IUserService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.JwtTokenUtil;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.utils.JwtTokenUtil;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
 /**
  * 描述: 用户服务
@@ -20,9 +20,10 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
 @Service
 public class UserService implements IUserService {
     @Value("${app.config.username}")
-    private static final String USERNAME = "admin";
+    private String USERNAME;
+
     @Value("${app.config.password}")
-    private static final String PASSWORD = "admin";
+    private String PASSWORD;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 

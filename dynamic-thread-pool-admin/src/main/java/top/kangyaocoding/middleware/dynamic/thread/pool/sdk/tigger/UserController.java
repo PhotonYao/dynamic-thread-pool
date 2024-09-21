@@ -1,10 +1,10 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger;
 
 import org.springframework.web.bind.annotation.*;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.dto.LoginFormDTO;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums.ResponseEnum;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.LoginFormDTO;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.ResponseEnum;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IUserService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
 /**
  * 描述: 用户控制器

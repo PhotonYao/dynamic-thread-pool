@@ -6,11 +6,11 @@ import org.redisson.api.RMap;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Service;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums.DynamicThreadPoolEnum;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums.ResponseEnum;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.DynamicThreadPoolEnum;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.ResponseEnum;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.Response;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
 import java.util.ArrayList;
 import java.util.List;

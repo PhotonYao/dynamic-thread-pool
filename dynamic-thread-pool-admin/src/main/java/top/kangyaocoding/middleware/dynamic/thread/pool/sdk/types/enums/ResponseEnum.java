@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.enums;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.dto;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto;
 
 import lombok.Data;
 

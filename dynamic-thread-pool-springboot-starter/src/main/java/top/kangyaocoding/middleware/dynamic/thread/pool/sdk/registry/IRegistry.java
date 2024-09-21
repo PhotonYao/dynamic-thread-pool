@@ -1,6 +1,6 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry;
 
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 
 import java.util.List;
 

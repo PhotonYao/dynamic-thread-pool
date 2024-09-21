@@ -526,7 +526,7 @@ Consider marking one of the beans as @Primary, updating the consumer to accept m
 24-09-15.14:54:36.812 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.14:54:36.814 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 2 ms
 24-09-15.14:56:44.562 [redisson-netty-1-8] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x3b42ce30, L:/127.0.0.1:54824 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=303, widx=303), command: (GET), promise: java.util.concurrent.CompletableFuture@3533e7bd[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor01]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -567,7 +567,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.14:56:44.567 [redisson-netty-1-8] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x3b42ce30, L:/127.0.0.1:54824 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -587,7 +587,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -672,7 +672,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -713,7 +713,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.14:57:27.370 [redisson-netty-1-10] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xbe140f5e, L:/127.0.0.1:54825 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=338, widx=338), command: (GET), promise: java.util.concurrent.CompletableFuture@5705590e[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor02]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -754,7 +754,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.14:57:27.371 [redisson-netty-1-10] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xbe140f5e, L:/127.0.0.1:54825 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -774,7 +774,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -859,7 +859,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -900,7 +900,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.14:57:39.265 [redisson-netty-1-12] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x08bf9b4d, L:/127.0.0.1:54826 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=338, widx=338), command: (GET), promise: java.util.concurrent.CompletableFuture@c4a11c8[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor02]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -941,7 +941,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.14:57:39.265 [redisson-netty-1-12] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x08bf9b4d, L:/127.0.0.1:54826 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -961,7 +961,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1046,7 +1046,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1087,7 +1087,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.14:58:15.927 [redisson-netty-1-2] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xe264151b, L:/127.0.0.1:54821 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=338, widx=338), command: (GET), promise: java.util.concurrent.CompletableFuture@6cc012ac[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor02]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1128,7 +1128,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.14:58:15.928 [redisson-netty-1-2] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xe264151b, L:/127.0.0.1:54821 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -1148,7 +1148,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1233,7 +1233,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1274,7 +1274,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.14:59:53.267 [redisson-netty-1-6] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x4ba5260e, L:/127.0.0.1:54823 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=303, widx=303), command: (GET), promise: java.util.concurrent.CompletableFuture@30bc2e41[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor01]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1315,7 +1315,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.14:59:53.268 [redisson-netty-1-6] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x4ba5260e, L:/127.0.0.1:54823 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -1335,7 +1335,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1420,7 +1420,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1461,7 +1461,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.15:00:03.807 [redisson-netty-1-8] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x3b42ce30, L:/127.0.0.1:54824 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=303, widx=303), command: (GET), promise: java.util.concurrent.CompletableFuture@7a833c1b[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor01]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1502,7 +1502,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:00:03.807 [redisson-netty-1-8] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x3b42ce30, L:/127.0.0.1:54824 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -1522,7 +1522,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1607,7 +1607,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1673,7 +1673,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 24-09-15.15:02:22.580 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.15:02:22.581 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 0 ms
 24-09-15.15:02:23.898 [redisson-netty-1-6] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xfc981afe, L:/127.0.0.1:55023 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=338, widx=338), command: (GET), promise: java.util.concurrent.CompletableFuture@db464ba[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor01]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1714,7 +1714,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:02:23.902 [redisson-netty-1-6] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xfc981afe, L:/127.0.0.1:55023 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -1734,7 +1734,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1819,7 +1819,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1860,7 +1860,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.15:04:49.859 [redisson-netty-1-8] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xb7819a3c, L:/127.0.0.1:55024 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=338, widx=338), command: (GET), promise: java.util.concurrent.CompletableFuture@1582f76a[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor01]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -1901,7 +1901,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:04:49.860 [redisson-netty-1-8] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xb7819a3c, L:/127.0.0.1:55024 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -1921,7 +1921,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2006,7 +2006,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2048,7 +2048,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	... 1 common frames omitted
 24-09-15.15:05:12.394 [http-nio-8089-exec-4] WARN  DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'appName' for method parameter type String is not present]
 24-09-15.15:06:37.843 [redisson-netty-1-2] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xdb9d835d, L:/127.0.0.1:55021 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=338, widx=338), command: (GET), promise: java.util.concurrent.CompletableFuture@6fedd562[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_PARAMETER_LIST_KEY_dynamic-thread-pool-test-app_threadPoolExecutor01]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2089,7 +2089,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:06:37.844 [redisson-netty-1-2] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xdb9d835d, L:/127.0.0.1:55021 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -2109,7 +2109,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2194,7 +2194,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2235,7 +2235,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.15:07:26.853 [redisson-netty-1-10] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xac09c426, L:/127.0.0.1:55025 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=342, widx=680), command: (LRANGE), promise: java.util.concurrent.CompletableFuture@53ceff03[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_LIST_KEY, 0, -1]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2278,7 +2278,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:07:26.853 [redisson-netty-1-10] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xac09c426, L:/127.0.0.1:55025 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -2298,7 +2298,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2385,7 +2385,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2453,7 +2453,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 24-09-15.15:09:19.676 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.15:09:19.678 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
 24-09-15.15:09:21.937 [redisson-netty-1-6] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x7e75f744, L:/127.0.0.1:55178 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=342, widx=680), command: (LRANGE), promise: java.util.concurrent.CompletableFuture@5f84651a[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_LIST_KEY, 0, -1]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2496,7 +2496,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:09:21.942 [redisson-netty-1-6] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x7e75f744, L:/127.0.0.1:55178 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -2516,7 +2516,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2603,7 +2603,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2671,7 +2671,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 24-09-15.15:11:19.684 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.15:11:19.685 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
 24-09-15.15:11:29.449 [redisson-netty-1-6] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xf1ccfd02, L:/127.0.0.1:55203 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=342, widx=680), command: (LRANGE), promise: java.util.concurrent.CompletableFuture@db464ba[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_LIST_KEY, 0, -1]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2714,7 +2714,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:11:29.454 [redisson-netty-1-6] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xf1ccfd02, L:/127.0.0.1:55203 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -2734,7 +2734,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2821,7 +2821,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2864,7 +2864,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	... 1 common frames omitted
 24-09-15.15:11:38.584 [redisson-netty-1-8] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0xff1bb0a7, L:/127.0.0.1:55204 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=342, widx=680), command: (LRANGE), promise: java.util.concurrent.CompletableFuture@1582f76a[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_LIST_KEY, 0, -1]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -2907,7 +2907,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:11:38.585 [redisson-netty-1-8] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0xff1bb0a7, L:/127.0.0.1:55204 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -2927,7 +2927,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3014,7 +3014,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3082,7 +3082,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 24-09-15.15:13:39.044 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.15:13:39.045 [RMI TCP Connection(1)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
 24-09-15.15:13:41.272 [redisson-netty-1-6] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x3c35401d, L:/127.0.0.1:55295 - R:127.0.0.1/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=342, widx=680), command: (LRANGE), promise: java.util.concurrent.CompletableFuture@111efc24[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_LIST_KEY, 0, -1]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3125,7 +3125,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:13:41.276 [redisson-netty-1-6] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x3c35401d, L:/127.0.0.1:55295 - R:127.0.0.1/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -3145,7 +3145,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3232,7 +3232,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3325,7 +3325,7 @@ Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not 
 24-09-15.15:23:08.879 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
 24-09-15.15:23:08.880 [RMI TCP Connection(2)-172.29.8.194] INFO  DispatcherServlet      - Completed initialization in 1 ms
 24-09-15.15:23:13.916 [redisson-netty-1-7] ERROR CommandDecoder         - Unable to decode data. channel: [id: 0x23502efc, L:/127.0.0.1:54630 - R:localhost/127.0.0.1:6379], reply: ReplayingDecoderByteBuf(ridx=342, widx=680), command: (LRANGE), promise: java.util.concurrent.CompletableFuture@389c86b6[Not completed, 1 dependents], params: [THREAD_POOL_CONFIG_LIST_KEY, 0, -1]
-com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3368,7 +3368,7 @@ com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve typ
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 24-09-15.15:23:13.920 [redisson-netty-1-7] ERROR ErrorsLoggingHandler   - Exception occured. Channel: [id: 0x23502efc, L:/127.0.0.1:54630 - R:localhost/127.0.0.1:6379]
-io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at io.netty.handler.codec.ReplayingDecoder.callDecode(ReplayingDecoder.java:421)
 	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
@@ -3388,7 +3388,7 @@ io.netty.handler.codec.DecoderException: com.fasterxml.jackson.databind.exc.Inva
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)
@@ -3475,7 +3475,7 @@ org.redisson.client.RedisException: Unexpected exception while processing comman
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
+Caused by: com.fasterxml.jackson.databind.exc.InvalidTypeIdException: Could not resolve type id 'entity.top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.ThreadPoolConfigEntity' as a subtype of `java.lang.Object`: no such class found
  at [Source: (io.netty.buffer.ByteBufInputStream); line: 1, column: 11]
 	at com.fasterxml.jackson.databind.exc.InvalidTypeIdException.from(InvalidTypeIdException.java:43)
 	at com.fasterxml.jackson.databind.DeserializationContext.invalidTypeIdException(DeserializationContext.java:2073)

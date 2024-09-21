@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity;
 
 import lombok.Data;
 

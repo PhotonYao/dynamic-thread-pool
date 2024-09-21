@@ -1,6 +1,6 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service;
 
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import java.util.List;
  * @since 2024-09-15 00:28
  */
 public interface IDynamicThreadPoolService {
+
     List<ThreadPoolConfigEntity> getThreadPoolConfigList();
 
     ThreadPoolConfigEntity getThreadPoolConfigByName(String threadPoolName);

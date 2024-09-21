@@ -6,11 +6,14 @@
 
     <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
     <artifactId>dynamic-thread-pool</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
+
     <packaging>pom</packaging>
+
     <modules>
         <module>dynamic-thread-pool-springboot-starter</module>
         <module>dynamic-thread-pool-admin</module>
+        <module>dynamic-thread-pool-test</module>
     </modules>
 
     <parent>
@@ -65,11 +68,6 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
             <version>2.3.1</version>
         </dependency>
     </dependencies>

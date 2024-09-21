@@ -8,4 +8,6 @@ Content-Type: application/json
 }
 
 ### 动态线程池 测试
-POST http://localhost:8089/api/v1/user/test
+GET http://localhost:8089/api/v1/user/test
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTcyNzE2MTA3NSwiaWF0IjoxNzI2OTAxODc1LCJ1c2VybmFtZSI6ImFkbWluIn0.68VIbRGs8s2zWPdF52YIFW-DaznEPXVCAbweMYItrjqLdJYG0tmFVZegx_ifxbmRs3-wcqmRI4gysX6T-eWosw

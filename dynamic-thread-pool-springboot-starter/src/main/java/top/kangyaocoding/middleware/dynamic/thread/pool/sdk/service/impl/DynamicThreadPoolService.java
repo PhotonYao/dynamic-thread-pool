@@ -1,8 +1,10 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
+import org.springframework.stereotype.Service;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 
 import java.util.ArrayList;
 import java.util.List;
