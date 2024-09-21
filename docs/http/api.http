@@ -1,0 +1,11 @@
+### 动态线程池 Login
+POST http://localhost:8089/api/v1/user/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "admin"
+}
+
+### 动态线程池 测试
+POST http://localhost:8089/api/v1/user/test

@@ -5,6 +5,12 @@ app:
   config:
     api-version: v1
     cross-origin: "*"
+    username: admin
+    password: admin
+
+jwt:
+  secret: ibZro688LyTNw8LenAFXPONyDicpZ3yUsNOSm+gSPxY=
+  expiration: 259200
 
 redis:
   sdk:

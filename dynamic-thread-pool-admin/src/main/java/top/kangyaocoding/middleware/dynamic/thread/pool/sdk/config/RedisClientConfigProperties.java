@@ -22,7 +22,7 @@ public class RedisClientConfigProperties {
      */
     private int port;
     /**
-     * 账密
+     * 密码
      */
     private String password;
     /**
