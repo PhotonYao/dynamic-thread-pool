@@ -13,7 +13,6 @@
     <modules>
         <module>dynamic-thread-pool-springboot-starter</module>
         <module>dynamic-thread-pool-admin</module>
-        <module>dynamic-thread-pool-test</module>
     </modules>
 
     <parent>

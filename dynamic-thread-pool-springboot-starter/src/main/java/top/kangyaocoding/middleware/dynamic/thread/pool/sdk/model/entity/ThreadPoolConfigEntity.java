@@ -10,6 +10,11 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity;
 public class ThreadPoolConfigEntity {
 
     /**
+     * 告警原因
+     */
+    private String alarmReason;
+
+    /**
      * 应用名称
      */
     private String appName;
@@ -60,6 +65,14 @@ public class ThreadPoolConfigEntity {
     public ThreadPoolConfigEntity(String appName, String threadPoolName) {
         this.appName = appName;
         this.threadPoolName = threadPoolName;
+    }
+
+    public void setAlarmReason(String alarmReason) {
+        this.alarmReason = alarmReason;
+    }
+
+    public String getAlarmReason() {
+        return alarmReason;
     }
 
     public String getAppName() {

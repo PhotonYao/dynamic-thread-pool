@@ -58,6 +58,15 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
 
     @Override
     public Response<ThreadPoolConfigEntity> queryThreadPoolConfig(String appName, String threadPoolName) {
+
+        if (appName == null || threadPoolName == null) {
+            log.error("请求参数为空");
+            return Response.<ThreadPoolConfigEntity>builder()
+                    .code(ResponseEnum.ILLEGAL_PARAMETER.getCode())
+                    .info(ResponseEnum.ILLEGAL_PARAMETER.getInfo())
+                    .build();
+        }
+
         try {
             String cacheKey = DynamicThreadPoolEnum.THREAD_POOL_CONFIG_PARAMETER_LIST_KEY.getCode()
                     + "_" + appName + "_" + threadPoolName;
@@ -79,6 +88,16 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
 
     @Override
     public Response<Boolean> updateThreadPoolConfig(ThreadPoolConfigEntity request) {
+
+        if (request == null || request.getAppName() == null || request.getThreadPoolName() == null) {
+            log.error("请求参数不完整：{}", JSON.toJSONString(request));
+            return Response.<Boolean>builder()
+                    .code(ResponseEnum.ILLEGAL_PARAMETER.getCode())
+                    .info(ResponseEnum.ILLEGAL_PARAMETER.getInfo())
+                    .data(false)
+                    .build();
+        }
+
         try {
             log.info("修改线程池配置开始 {} {} {}", request.getAppName(), request.getThreadPoolName(), JSON.toJSONString(request));
             // 获取发布消息的 Topic

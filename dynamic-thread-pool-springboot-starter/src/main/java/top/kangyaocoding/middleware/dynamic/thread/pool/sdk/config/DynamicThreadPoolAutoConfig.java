@@ -20,7 +20,7 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnu
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.redis.RedisRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.DynamicThreadPoolService;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.DynamicThreadPoolServiceImpl;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolAdjustListener;
 
@@ -92,7 +92,7 @@ public class DynamicThreadPoolAutoConfig {
      * @return DynamicThreadPoolService 动态线程池服务，包含应用程序名称和线程池执行器信息。
      */
     @Bean("dynamicThreadPoolAService")
-    public DynamicThreadPoolService dynamicThreadPoolAService(
+    public DynamicThreadPoolServiceImpl dynamicThreadPoolAService(
             ApplicationContext applicationContext, Map<String,
             ThreadPoolExecutor> threadPoolExecutorMap,
             RedissonClient dynamicThreadRedissonClient) {
@@ -116,7 +116,7 @@ public class DynamicThreadPoolAutoConfig {
 
         logger.info("线程池信息：{}", JSON.toJSONString(threadPoolExecutorKeys));
 
-        return new DynamicThreadPoolService(applicationName, threadPoolExecutorMap);
+        return new DynamicThreadPoolServiceImpl(applicationName, threadPoolExecutorMap);
     }
 
     @Bean

@@ -2,14 +2,10 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -19,12 +15,12 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @since 2024-09-15 00:36
  */
 @Slf4j
-public class DynamicThreadPoolService implements IDynamicThreadPoolService {
+public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
 
     private final String applicationName;
     private final Map<String, ThreadPoolExecutor> threadPoolExecutorMap;
 
-    public DynamicThreadPoolService(String applicationName, Map<String, ThreadPoolExecutor> threadPoolExecutorMap) {
+    public DynamicThreadPoolServiceImpl(String applicationName, Map<String, ThreadPoolExecutor> threadPoolExecutorMap) {
         this.applicationName = applicationName;
         this.threadPoolExecutorMap = threadPoolExecutorMap;
     }
@@ -64,10 +60,7 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
             threadPoolVOS.add(threadPoolVO);
         }
 
-        // 如果日志级别为debug，则记录线程池配置列表信息
-        if (log.isDebugEnabled()) {
-            log.info("动态线程池，配置查询，应用名: {} 池化配置列表: {}", applicationName, JSON.toJSONString(threadPoolVOS));
-        }
+        log.info("动态线程池，配置查询，应用名: {} 池化配置列表: {}", applicationName, JSON.toJSONString(threadPoolVOS));
 
         // 返回线程池配置列表
         return threadPoolVOS;
@@ -111,11 +104,7 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
         // 设置线程池的队列剩余容量
         threadPoolVO.setRemainingCapacity(threadPoolExecutor.getQueue().remainingCapacity());
 
-        // 检查是否启用了调试日志
-        if (log.isDebugEnabled()) {
-            // 如果启用调试，记录详细的配置信息
-            log.info("动态线程池，配置查询，应用名: {} 线程名: {} 池化配置: {}", applicationName, threadPoolName, JSON.toJSONString(threadPoolVO));
-        }
+        log.info("动态线程池，配置查询，应用名: {} 线程名: {} 池化配置: {}", applicationName, threadPoolName, JSON.toJSONString(threadPoolVO));
 
         // 返回封装后的线程池配置信息对象
         return threadPoolVO;
@@ -131,29 +120,50 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
     @Override
     public boolean updateThreadPoolConfig(ThreadPoolConfigEntity threadPoolConfigEntity) {
 
-        // 检查输入参数的有效性
-        if (null == threadPoolConfigEntity || !applicationName.equals(threadPoolConfigEntity.getAppName())) {
-            log.warn("动态线程池，配置更新失败，参数不合法，参数: {}", JSON.toJSONString(threadPoolConfigEntity));
+        // 参数校验
+        if (threadPoolConfigEntity == null) {
+            log.warn("动态线程池，配置更新失败，参数为空");
             return false;
         }
 
-        // 从线程池映射中获取对应的线程池实例
+        if (!Objects.equals(applicationName, threadPoolConfigEntity.getAppName())) {
+            log.warn("动态线程池，配置更新失败，应用名称不匹配: {}", threadPoolConfigEntity.getAppName());
+            return false;
+        }
+
+        if (threadPoolConfigEntity.getCorePoolSize() <= 0 || threadPoolConfigEntity.getMaximumPoolSize() <= 0) {
+            log.warn("动态线程池，配置更新失败，线程池大小配置不合法: {}", JSON.toJSONString(threadPoolConfigEntity));
+            return false;
+        }
+
+        if (threadPoolConfigEntity.getCorePoolSize() > threadPoolConfigEntity.getMaximumPoolSize()) {
+            log.warn("动态线程池，配置更新失败，核心线程数不能大于最大线程数: {}", JSON.toJSONString(threadPoolConfigEntity));
+            return false;
+        }
+
+        // 从线程池映射中获取线程池实例
         ThreadPoolExecutor threadPoolExecutor = threadPoolExecutorMap.get(threadPoolConfigEntity.getThreadPoolName());
 
-        // 检查线程池实例是否存在
-        if (null == threadPoolExecutor) {
-            log.warn("动态线程池，配置更新失败，线程池不存在，参数: {}", JSON.toJSONString(threadPoolConfigEntity));
+        if (threadPoolExecutor == null) {
+            log.warn("动态线程池，配置更新失败，线程池 [{}] 不存在", threadPoolConfigEntity.getThreadPoolName());
             return false;
         }
 
-        // 设置线程池参数
-        threadPoolExecutor.setCorePoolSize(threadPoolConfigEntity.getCorePoolSize());
-        threadPoolExecutor.setMaximumPoolSize(threadPoolConfigEntity.getMaximumPoolSize());
+        try {
+            // 更新线程池参数
+            synchronized (threadPoolExecutor) {
+                threadPoolExecutor.setCorePoolSize(threadPoolConfigEntity.getCorePoolSize());
+                threadPoolExecutor.setMaximumPoolSize(threadPoolConfigEntity.getMaximumPoolSize());
+            }
 
-        // 记录线程池配置更新完成的日志
-        log.info("线程池配置更新完成");
-
-        return true;
+            // 更新成功日志
+            log.debug("线程池配置更新完成: {}", JSON.toJSONString(threadPoolConfigEntity));
+            return true;
+        } catch (Exception e) {
+            log.error("动态线程池，配置更新失败，异常信息: {}", JSON.toJSONString(threadPoolConfigEntity), e);
+            return false;
+        }
     }
+
 
 }
