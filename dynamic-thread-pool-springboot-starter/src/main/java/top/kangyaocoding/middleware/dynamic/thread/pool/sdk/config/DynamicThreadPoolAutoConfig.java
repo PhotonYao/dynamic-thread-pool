@@ -17,13 +17,18 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnumVO;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.DingDingNotifyStrategy;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.FeiShuNotifyStrategy;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.INotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.redis.RedisRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.DynamicThreadPoolServiceImpl;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.NotifyServiceImpl;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolAdjustListener;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -37,7 +42,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 @EnableScheduling
-@EnableConfigurationProperties(DynamicThreadPoolAutoConfigProperties.class)
+@EnableConfigurationProperties({DynamicThreadPoolAutoConfigProperties.class, DynamicThreadPoolNotifyAutoProperties.class})
 public class DynamicThreadPoolAutoConfig {
 
     private final Logger logger = LoggerFactory.getLogger(DynamicThreadPoolAutoConfig.class);
@@ -75,7 +80,6 @@ public class DynamicThreadPoolAutoConfig {
     public IRegistry redisRegistry(RedissonClient dynamicThreadRedissonClient) {
         return new RedisRegistry(dynamicThreadRedissonClient);
     }
-
 
     /**
      * 定义名为 "dynamicThreadPoolAService" 的 Bean，用于管理动态线程池。
@@ -147,5 +151,25 @@ public class DynamicThreadPoolAutoConfig {
         // 返回配置好的主题实例
         return topic;
 
+    }
+
+    @Bean
+    public INotifyStrategy dingDingNotifyStrategy(DynamicThreadPoolNotifyAutoProperties notifyProperties) {
+        logger.info("钉钉通知初始化成功。");
+        return new DingDingNotifyStrategy(notifyProperties);
+    }
+
+    @Bean
+    public INotifyStrategy feiShuNotifyStrategy(DynamicThreadPoolNotifyAutoProperties notifyProperties) {
+        return new FeiShuNotifyStrategy(notifyProperties);
+    }
+
+    @Bean
+    public NotifyServiceImpl notifyServiceImpl(
+            DynamicThreadPoolNotifyAutoProperties properties,
+            RedissonClient dynamicThreadRedissonClient,
+            List<INotifyStrategy> strategyList) {
+
+        return new NotifyServiceImpl(properties, dynamicThreadRedissonClient, strategyList);
     }
 }

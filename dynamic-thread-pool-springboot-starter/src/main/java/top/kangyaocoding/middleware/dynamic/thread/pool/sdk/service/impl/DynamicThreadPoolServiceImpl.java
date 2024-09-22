@@ -2,8 +2,10 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
 
 import java.util.*;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -19,6 +21,7 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
 
     private final String applicationName;
     private final Map<String, ThreadPoolExecutor> threadPoolExecutorMap;
+    private INotifyService notifyService;
 
     public DynamicThreadPoolServiceImpl(String applicationName, Map<String, ThreadPoolExecutor> threadPoolExecutorMap) {
         this.applicationName = applicationName;
@@ -156,14 +159,21 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
                 threadPoolExecutor.setMaximumPoolSize(threadPoolConfigEntity.getMaximumPoolSize());
             }
 
+            // 构建更新配置通知
+            NotifyMessageDTO messageDTO = new NotifyMessageDTO();
+            messageDTO.addParameter("应用名称: ", applicationName)
+                    .addParameter("线程池名称: ", threadPoolConfigEntity.getThreadPoolName())
+                    .addParameter("核心线程数: ", threadPoolConfigEntity.getCorePoolSize())
+                    .addParameter("最大线程数: ", threadPoolConfigEntity.getMaximumPoolSize());
+            notifyService.sendNotify(messageDTO);
+
             // 更新成功日志
-            log.debug("线程池配置更新完成: {}", JSON.toJSONString(threadPoolConfigEntity));
+            log.info("线程池配置更新完成: {}", JSON.toJSONString(threadPoolConfigEntity));
             return true;
         } catch (Exception e) {
             log.error("动态线程池，配置更新失败，异常信息: {}", JSON.toJSONString(threadPoolConfigEntity), e);
             return false;
         }
     }
-
 
 }

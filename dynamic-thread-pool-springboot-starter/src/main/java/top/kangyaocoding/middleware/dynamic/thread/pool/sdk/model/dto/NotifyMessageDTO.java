@@ -17,12 +17,12 @@ import java.util.LinkedHashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AlarmMessageDTO {
+public class NotifyMessageDTO {
 
     private String message;
     private LinkedHashMap<String, String> parameters;
 
-    public <T> AlarmMessageDTO addParameter(String k, T v) {
+    public <T> NotifyMessageDTO addParameter(String k, T v) {
         parameters.put(k, v.toString());
         return this;
     }

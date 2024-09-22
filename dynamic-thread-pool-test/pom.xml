@@ -9,15 +9,9 @@
         <version>1.5</version>
     </parent>
 
-    <artifactId>dynamic-thread-pool-admin</artifactId>
+    <artifactId>dynamic-thread-pool-test</artifactId>
 
     <packaging>jar</packaging>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -54,23 +48,17 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
+
+        <!-- 线程组件 -->
         <dependency>
-            <groupId>org.redisson</groupId>
-            <artifactId>redisson-spring-boot-starter</artifactId>
-            <version>3.26.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
+            <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
+            <artifactId>dynamic-thread-pool-springboot-starter</artifactId>
+            <version>1.5</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>dynamic-thread-pool-admin-app</finalName>
+        <finalName>dynamic-thread-pool-test-app</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -93,7 +81,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.3.0</version>
+                <version>3.3.1</version>
                 <configuration>
                     <skipTests>true</skipTests>
                     <testFailureIgnore>false</testFailureIgnore>
@@ -106,7 +94,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>top.kangyaocoding.middleware.dynamic.thread.pool.sdk.Application</mainClass>
+                    <mainClass>cn.kangyaocoding.Application</mainClass>
                     <layout>JAR</layout>
                 </configuration>
             </plugin>
