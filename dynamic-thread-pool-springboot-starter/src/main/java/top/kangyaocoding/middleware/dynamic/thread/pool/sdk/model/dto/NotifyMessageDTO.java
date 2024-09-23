@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 public class NotifyMessageDTO {
 
     private String message;
-    private LinkedHashMap<String, String> parameters;
+    private LinkedHashMap<String, String> parameters = new LinkedHashMap<>();;
 
     public <T> NotifyMessageDTO addParameter(String k, T v) {
         parameters.put(k, v.toString());

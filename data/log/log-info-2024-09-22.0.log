@@ -1,0 +1,331 @@
+24-09-22.23:10:40.094 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 7524 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:10:40.096 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:10:40.717 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:10:40.719 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:10:40.742 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+24-09-22.23:10:41.110 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-22.23:10:41.111 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:10:41.111 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:10:41.111 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:10:41.129 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:10:41.137 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-22.23:10:41.137 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:10:41.137 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:10:41.241 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:10:41.241 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1106 ms
+24-09-22.23:10:41.545 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-22.23:10:44.878 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dynamicThreadPoolService' defined in file [E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes\top\kangyaocoding\middleware\dynamic\thread\pool\sdk\service\impl\DynamicThreadPoolService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/RedisClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: java.util.concurrent.ExecutionException: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+24-09-22.23:10:44.881 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+24-09-22.23:10:44.897 [main            ] INFO  ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+24-09-22.23:10:44.911 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dynamicThreadPoolService' defined in file [E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes\top\kangyaocoding\middleware\dynamic\thread\pool\sdk\service\impl\DynamicThreadPoolService.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/RedisClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: java.util.concurrent.ExecutionException: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292)
+	at top.kangyaocoding.middleware.dynamic.thread.pool.sdk.Application.main(Application.java:18)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redissonClient' defined in class path resource [top/kangyaocoding/middleware/dynamic/thread/pool/sdk/config/RedisClientConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: java.util.concurrent.ExecutionException: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.redisson.api.RedissonClient]: Factory method 'redissonClient' threw exception; nested exception is org.redisson.client.RedisConnectionException: java.util.concurrent.ExecutionException: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 33 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: java.util.concurrent.ExecutionException: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+	at org.redisson.connection.MasterSlaveConnectionManager.doConnect(MasterSlaveConnectionManager.java:229)
+	at org.redisson.connection.MasterSlaveConnectionManager.connect(MasterSlaveConnectionManager.java:196)
+	at org.redisson.config.ConfigSupport.createConnectionManager(ConfigSupport.java:220)
+	at org.redisson.Redisson.<init>(Redisson.java:71)
+	at org.redisson.Redisson.create(Redisson.java:116)
+	at top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.RedisClientConfig.redissonClient(RedisClientConfig.java:40)
+	at top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.RedisClientConfig$$EnhancerBySpringCGLIB$$2049b552.CGLIB$redissonClient$0(<generated>)
+	at top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.RedisClientConfig$$EnhancerBySpringCGLIB$$2049b552$$FastClassBySpringCGLIB$$a570d08.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.RedisClientConfig$$EnhancerBySpringCGLIB$$2049b552.redissonClient(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 34 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.redisson.connection.MasterSlaveConnectionManager.doConnect(MasterSlaveConnectionManager.java:225)
+	... 49 common frames omitted
+Caused by: org.redisson.client.RedisConnectionException: Unable to connect to Redis server: localhost/127.0.0.1:6379
+	at org.redisson.connection.ConnectionsHolder.lambda$createConnection$1(ConnectionsHolder.java:183)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2162)
+	at org.redisson.connection.ConnectionsHolder.promiseFailure(ConnectionsHolder.java:218)
+	at org.redisson.connection.ConnectionsHolder.lambda$createConnection$4(ConnectionsHolder.java:204)
+	at java.base/java.util.concurrent.CompletableFuture.uniWhenComplete(CompletableFuture.java:863)
+	at java.base/java.util.concurrent.CompletableFuture$UniWhenComplete.tryFire(CompletableFuture.java:841)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2162)
+	at org.redisson.client.RedisClient$1$2.run(RedisClient.java:308)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.util.concurrent.CompletionException: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+	at java.base/java.util.concurrent.CompletableFuture.encodeRelay(CompletableFuture.java:368)
+	at java.base/java.util.concurrent.CompletableFuture.completeRelay(CompletableFuture.java:377)
+	at java.base/java.util.concurrent.CompletableFuture$UniRelay.tryFire(CompletableFuture.java:1097)
+	... 11 common frames omitted
+Caused by: io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection refused: no further information: localhost/127.0.0.1:6379
+Caused by: java.net.ConnectException: Connection refused: no further information
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:946)
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:337)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:334)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:776)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:724)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:650)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+24-09-22.23:11:39.432 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 17344 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:11:39.434 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:11:39.975 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:11:39.978 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:11:39.997 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+24-09-22.23:11:40.329 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-22.23:11:40.329 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:11:40.329 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:11:40.329 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:11:40.334 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:11:40.340 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-22.23:11:40.340 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:11:40.340 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:11:40.448 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:11:40.448 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 983 ms
+24-09-22.23:11:40.735 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-22.23:11:41.018 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:11:41.032 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:11:41.702 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:11:41.721 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-22.23:11:41.733 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-22.23:11:41.744 [main            ] INFO  Application            - Started Application in 2.686 seconds (JVM running for 3.274)
+24-09-22.23:11:42.199 [RMI TCP Connection(1)-172.29.10.203] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-22.23:11:42.199 [RMI TCP Connection(1)-172.29.10.203] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-22.23:11:42.201 [RMI TCP Connection(1)-172.29.10.203] INFO  DispatcherServlet      - Completed initialization in 2 ms
+24-09-22.23:15:26.512 [http-nio-8089-exec-4] INFO  DynamicThreadPoolService - 修改线程池配置开始 creative-ai-hub-data threadPoolExecutor {"activeCount":0,"appName":"creative-ai-hub-data","corePoolSize":20,"maximumPoolSize":50,"poolSize":0,"queueSize":0,"remainingCapacity":0,"threadPoolName":"threadPoolExecutor"}
+24-09-22.23:15:26.518 [http-nio-8089-exec-4] INFO  DynamicThreadPoolService - 修改线程池配置完成 creative-ai-hub-data threadPoolExecutor
+24-09-22.23:18:02.483 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 20668 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:18:02.485 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:18:03.027 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:18:03.029 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:18:03.049 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+24-09-22.23:18:03.392 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-22.23:18:03.397 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:18:03.397 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:18:03.397 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:18:03.401 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:18:03.408 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-22.23:18:03.409 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:18:03.409 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:18:03.511 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:18:03.511 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 994 ms
+24-09-22.23:18:03.813 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-22.23:18:04.124 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:18:04.153 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:18:04.817 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:18:04.837 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-22.23:18:04.847 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-22.23:18:04.859 [main            ] INFO  Application            - Started Application in 2.746 seconds (JVM running for 3.3)
+24-09-22.23:18:05.201 [RMI TCP Connection(1)-172.29.10.203] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-22.23:18:05.201 [RMI TCP Connection(1)-172.29.10.203] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-22.23:18:05.203 [RMI TCP Connection(1)-172.29.10.203] INFO  DispatcherServlet      - Completed initialization in 2 ms
+24-09-22.23:35:33.665 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 25104 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:35:33.667 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:35:34.209 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:35:34.211 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:35:34.230 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+24-09-22.23:35:34.559 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-22.23:35:34.559 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:35:34.560 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:35:34.560 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:35:34.564 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:35:34.570 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-22.23:35:34.570 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:35:34.570 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:35:34.671 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:35:34.671 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 972 ms
+24-09-22.23:35:34.952 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-22.23:35:35.232 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:35:35.246 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:35:35.826 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:35:35.842 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-22.23:35:35.852 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-22.23:35:35.864 [main            ] INFO  Application            - Started Application in 2.576 seconds (JVM running for 3.13)
+24-09-22.23:35:35.950 [RMI TCP Connection(2)-172.29.10.203] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-22.23:35:35.950 [RMI TCP Connection(2)-172.29.10.203] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-22.23:35:35.952 [RMI TCP Connection(2)-172.29.10.203] INFO  DispatcherServlet      - Completed initialization in 2 ms
+24-09-22.23:43:20.443 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 1992 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:43:20.445 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:43:20.976 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:43:20.978 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:43:20.997 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+24-09-22.23:43:21.335 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-22.23:43:21.335 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:43:21.335 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:43:21.335 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:43:21.352 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:43:21.359 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-22.23:43:21.359 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:43:21.359 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:43:21.462 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:43:21.463 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 987 ms
+24-09-22.23:43:21.748 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-22.23:43:22.032 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:43:22.045 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:43:22.634 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:43:22.651 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-22.23:43:22.661 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-22.23:43:22.673 [main            ] INFO  Application            - Started Application in 2.614 seconds (JVM running for 3.197)
+24-09-22.23:43:22.758 [RMI TCP Connection(2)-172.29.10.203] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-22.23:43:22.758 [RMI TCP Connection(2)-172.29.10.203] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-22.23:43:22.758 [RMI TCP Connection(2)-172.29.10.203] INFO  DispatcherServlet      - Completed initialization in 0 ms
+24-09-22.23:48:22.391 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 25800 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:48:22.393 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:48:22.947 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:48:22.949 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:48:22.965 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+24-09-22.23:48:23.372 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-22.23:48:23.372 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:48:23.373 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:48:23.373 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:48:23.377 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:48:23.383 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-22.23:48:23.384 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:48:23.384 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:48:23.490 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:48:23.490 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1065 ms
+24-09-22.23:48:24.092 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-22.23:48:24.258 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-22.23:48:24.430 [redisson-netty-1-6] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:48:24.481 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:48:24.876 [main            ] INFO  DynamicThreadPoolAutoConfig - 线程池信息：["threadPoolExecutor01","threadPoolExecutor02"]
+24-09-22.23:48:24.896 [main            ] INFO  DynamicThreadPoolAutoConfig - 钉钉通知初始化成功。
+24-09-22.23:48:24.905 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:48:24.925 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
+24-09-22.23:48:24.935 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
+24-09-22.23:48:24.943 [main            ] INFO  ScheduledAnnotationBeanPostProcessor - No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+24-09-22.23:48:24.950 [main            ] INFO  Application            - Started Application in 2.935 seconds (JVM running for 3.692)
+24-09-22.23:49:05.936 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 5384 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:49:05.938 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:49:06.507 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:49:06.510 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:49:06.525 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+24-09-22.23:49:06.924 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-22.23:49:06.925 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:49:06.925 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:49:06.925 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:49:06.929 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:49:06.936 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-22.23:49:06.937 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:49:06.937 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:49:07.042 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:49:07.042 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1072 ms
+24-09-22.23:49:07.630 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-22.23:49:07.793 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-22.23:49:07.958 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:49:08.009 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:49:08.403 [main            ] INFO  DynamicThreadPoolAutoConfig - 线程池信息：["threadPoolExecutor01","threadPoolExecutor02"]
+24-09-22.23:49:08.423 [main            ] INFO  DynamicThreadPoolAutoConfig - 钉钉通知初始化成功。
+24-09-22.23:49:08.434 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:49:08.452 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
+24-09-22.23:49:08.462 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
+24-09-22.23:49:08.476 [main            ] INFO  Application            - Started Application in 2.907 seconds (JVM running for 3.467)
+24-09-22.23:49:48.607 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 21100 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-test\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:49:48.609 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:49:49.197 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:49:49.199 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:49:49.220 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+24-09-22.23:49:49.609 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8093 (http)
+24-09-22.23:49:49.610 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:49:49.610 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:49:49.610 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:49:49.615 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:49:49.621 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8093"]
+24-09-22.23:49:49.621 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:49:49.621 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:49:49.735 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:49:49.735 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1092 ms
+24-09-22.23:49:50.348 [main            ] INFO  Version                - Redisson 3.31.0
+24-09-22.23:49:50.518 [main            ] WARN  SequentialDnsAddressResolverFactory - DNS TCP fallback on UDP query timeout disabled. Upgrade Netty to 4.1.105 or higher.
+24-09-22.23:49:50.690 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:49:50.742 [redisson-netty-1-20] INFO  ConnectionsHolder      - 24 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:49:51.145 [main            ] INFO  DynamicThreadPoolAutoConfig - 线程池信息：["threadPoolExecutor01","threadPoolExecutor02"]
+24-09-22.23:49:51.166 [main            ] INFO  DynamicThreadPoolAutoConfig - 钉钉通知初始化成功。
+24-09-22.23:49:51.175 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:49:51.195 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8093"]
+24-09-22.23:49:51.205 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8093 (http) with context path ''
+24-09-22.23:49:51.219 [main            ] INFO  Application            - Started Application in 2.994 seconds (JVM running for 3.558)
+24-09-22.23:50:05.667 [main            ] INFO  Application            - Starting Application using Java 17.0.5 on LAPTOP-EN7AFHC7 with PID 22152 (E:\java_works\dynamic-thread-pool\dynamic-thread-pool-admin\target\classes started by HarryKL in E:\java_works\dynamic-thread-pool)
+24-09-22.23:50:05.669 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+24-09-22.23:50:06.209 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+24-09-22.23:50:06.211 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+24-09-22.23:50:06.231 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+24-09-22.23:50:06.562 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port(s): 8089 (http)
+24-09-22.23:50:06.563 [main            ] INFO  AprLifecycleListener   - Loaded Apache Tomcat Native library [1.2.39] using APR version [1.7.4].
+24-09-22.23:50:06.563 [main            ] INFO  AprLifecycleListener   - APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+24-09-22.23:50:06.563 [main            ] INFO  AprLifecycleListener   - APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+24-09-22.23:50:06.567 [main            ] INFO  AprLifecycleListener   - OpenSSL successfully initialized [OpenSSL 3.0.11 19 Sep 2023]
+24-09-22.23:50:06.573 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8089"]
+24-09-22.23:50:06.574 [main            ] INFO  StandardService        - Starting service [Tomcat]
+24-09-22.23:50:06.574 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/9.0.75]
+24-09-22.23:50:06.674 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+24-09-22.23:50:06.674 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 973 ms
+24-09-22.23:50:06.959 [main            ] INFO  Version                - Redisson 3.26.0
+24-09-22.23:50:07.239 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:50:07.252 [redisson-netty-1-14] INFO  ConnectionsHolder      - 5 connections initialized for localhost/127.0.0.1:6379
+24-09-22.23:50:07.829 [main            ] INFO  EndpointLinksResolver  - Exposing 1 endpoint(s) beneath base path '/actuator'
+24-09-22.23:50:07.846 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8089"]
+24-09-22.23:50:07.856 [main            ] INFO  TomcatWebServer        - Tomcat started on port(s): 8089 (http) with context path ''
+24-09-22.23:50:07.867 [main            ] INFO  Application            - Started Application in 2.576 seconds (JVM running for 3.147)
+24-09-22.23:50:08.075 [RMI TCP Connection(1)-172.29.10.203] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+24-09-22.23:50:08.076 [RMI TCP Connection(1)-172.29.10.203] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+24-09-22.23:50:08.077 [RMI TCP Connection(1)-172.29.10.203] INFO  DispatcherServlet      - Completed initialization in 1 ms

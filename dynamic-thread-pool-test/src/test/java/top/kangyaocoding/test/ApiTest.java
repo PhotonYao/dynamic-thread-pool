@@ -1,4 +1,4 @@
-package cn.kangyaocoding.test;
+package top.kangyaocoding.test;
 
 import cn.kangyaocoding.middleware.dynamic.thread.pool.sdk.domain.model.entity.ThreadPoolConfigEntity;
 import lombok.extern.slf4j.Slf4j;

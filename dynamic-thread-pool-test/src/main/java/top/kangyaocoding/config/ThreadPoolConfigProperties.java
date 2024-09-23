@@ -1,4 +1,4 @@
-package cn.kangyaocoding.config;
+package top.kangyaocoding.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

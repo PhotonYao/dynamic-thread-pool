@@ -2,11 +2,14 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -21,6 +24,7 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
 
     private final String applicationName;
     private final Map<String, ThreadPoolExecutor> threadPoolExecutorMap;
+    @Autowired
     private INotifyService notifyService;
 
     public DynamicThreadPoolServiceImpl(String applicationName, Map<String, ThreadPoolExecutor> threadPoolExecutorMap) {
@@ -161,14 +165,13 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
 
             // 构建更新配置通知
             NotifyMessageDTO messageDTO = new NotifyMessageDTO();
+            messageDTO.setMessage("\uD83D\uDD14线程池配置更新通知\uD83D\uDD14");
             messageDTO.addParameter("应用名称: ", applicationName)
                     .addParameter("线程池名称: ", threadPoolConfigEntity.getThreadPoolName())
                     .addParameter("核心线程数: ", threadPoolConfigEntity.getCorePoolSize())
                     .addParameter("最大线程数: ", threadPoolConfigEntity.getMaximumPoolSize());
             notifyService.sendNotify(messageDTO);
 
-            // 更新成功日志
-            log.info("线程池配置更新完成: {}", JSON.toJSONString(threadPoolConfigEntity));
             return true;
         } catch (Exception e) {
             log.error("动态线程池，配置更新失败，异常信息: {}", JSON.toJSONString(threadPoolConfigEntity), e);

@@ -1,4 +1,4 @@
-package cn.kangyaocoding.config;
+package top.kangyaocoding.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

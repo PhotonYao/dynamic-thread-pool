@@ -1,4 +1,4 @@
-package cn.kangyaocoding;
+package top.kangyaocoding;
 
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.boot.ApplicationRunner;
@@ -21,7 +21,7 @@ public class Application {
     }
 
     @Bean
-    public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01) {
+    public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01, ExecutorService threadPoolExecutor02) {
         return args -> {
             while (true){
                 // 创建一个随机时间生成器
@@ -36,11 +36,26 @@ public class Application {
                     try {
                         // 模拟任务启动延迟
                         TimeUnit.SECONDS.sleep(initialDelay);
-                        System.out.println("Task started after " + initialDelay + " seconds.");
+                        System.out.println("1.Task started after " + initialDelay + " seconds.");
 
                         // 模拟任务执行
                         TimeUnit.SECONDS.sleep(sleepTime);
-                        System.out.println("Task executed for " + sleepTime + " seconds.");
+                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                });
+
+                // 提交任务到线程池
+                threadPoolExecutor02.submit(() -> {
+                    try {
+                        // 模拟任务启动延迟
+                        TimeUnit.SECONDS.sleep(initialDelay);
+                        System.out.println("1.Task started after " + initialDelay + " seconds.");
+
+                        // 模拟任务执行
+                        TimeUnit.SECONDS.sleep(sleepTime);
+                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }

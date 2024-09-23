@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,18 +16,27 @@ import java.util.List;
  */
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ConfigurationProperties(prefix = "dynamic.thread.pool.notify", ignoreUnknownFields = true)
 public class DynamicThreadPoolNotifyAutoProperties {
     private Boolean enabled = false;
-    private List<String> usePlatform;
+    private List<String> usePlatform = new ArrayList<>();
     private AccessToken accessToken;
+    private Secret secret;
 
     @Data
-    @NoArgsConstructor
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class AccessToken {
+        private String dingDing;
+        private String feiShu;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Secret {
         private String dingDing;
         private String feiShu;
     }

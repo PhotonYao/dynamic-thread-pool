@@ -6,7 +6,7 @@
     <parent>
         <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
         <artifactId>dynamic-thread-pool</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
     </parent>
 
     <artifactId>dynamic-thread-pool-springboot-starter</artifactId>
@@ -47,6 +47,10 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
         </dependency>
@@ -66,7 +70,7 @@
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson-spring-boot-starter</artifactId>
-            <version>3.31.0</version>
+            <version>3.34.0</version>
         </dependency>
     </dependencies>
 

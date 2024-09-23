@@ -14,7 +14,7 @@ public class DynamicThreadPoolAutoConfigProperties {
     /**
      * 状态；open = 开启、close 关闭
      */
-    private boolean enable;
+    private boolean enabled;
     /**
      * redis host
      */
@@ -61,11 +61,11 @@ public class DynamicThreadPoolAutoConfigProperties {
     private boolean keepAlive = true;
 
     public boolean isEnable() {
-        return enable;
+        return enabled;
     }
 
     public void setEnable(boolean enable) {
-        this.enable = enable;
+        this.enabled = enabled;
     }
 
     public String getHost() {

@@ -53,7 +53,7 @@
         <dependency>
             <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
             <artifactId>dynamic-thread-pool-springboot-starter</artifactId>
-            <version>1.5</version>
+            <version>1.6</version>
         </dependency>
     </dependencies>
 
@@ -94,7 +94,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>cn.kangyaocoding.Application</mainClass>
+                    <mainClass>top.kangyaocoding.Application</mainClass>
                     <layout>JAR</layout>
                 </configuration>
             </plugin>

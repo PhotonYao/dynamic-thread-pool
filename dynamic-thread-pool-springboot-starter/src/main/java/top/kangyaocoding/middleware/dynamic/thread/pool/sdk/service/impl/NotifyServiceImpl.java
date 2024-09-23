@@ -5,13 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolNotifyAutoProperties;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.INotifyStrategy;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,19 +26,28 @@ import java.util.stream.Collectors;
  * @since 2024-09-21 23:44
  */
 @Slf4j
+@Service
 public class NotifyServiceImpl implements INotifyService {
-
-    private final Map<String, INotifyStrategy> strategies;
+    private Map<String, AbstractNotifyStrategy> strategies = new HashMap<>();
     private final DynamicThreadPoolNotifyAutoProperties properties;
     private final RedissonClient redissonClient;
 
-    public NotifyServiceImpl(DynamicThreadPoolNotifyAutoProperties properties, RedissonClient redissonClient, List<INotifyStrategy> strategyList) {
+    @Autowired
+    public NotifyServiceImpl(DynamicThreadPoolNotifyAutoProperties properties, RedissonClient redissonClient, List<AbstractNotifyStrategy> strategyList) {
         this.properties = properties;
         this.redissonClient = redissonClient;
-        strategies = strategyList.stream()
+        // 将策略列表转换为Map，键是策略的名称
+        this.strategies = strategyList.stream()
                 .collect(Collectors.toMap(
-                        strategy -> strategy.getClass().getSimpleName(),
+                        AbstractNotifyStrategy::getStrategyName,
                         strategy -> strategy));
+    }
+
+    // 根据传入的策略名称列表，选择对应的策略
+    public List<AbstractNotifyStrategy> selectStrategy(List<String> strategyNames) {
+        return strategyNames.stream()
+                .map(strategies::get)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -47,16 +59,19 @@ public class NotifyServiceImpl implements INotifyService {
             return;
         }
 
-        for (String platformName : platform) {
-            INotifyStrategy strategy = strategies.get(platformName);
-            if (strategy == null) {
-                log.warn("告警平台: {} 不存在", platformName);
-                continue;
-            }
+        // 提前筛选出可用的策略
+        List<AbstractNotifyStrategy> selectedStrategies = selectStrategy(platform);
+        if (selectedStrategies.isEmpty()) {
+            log.warn("没有可用的告警策略");
+            return;
+        }
+
+        // 遍历策略并发送通知
+        for (AbstractNotifyStrategy strategy : selectedStrategies) {
             try {
                 strategy.sendNotify(notifyMsg);
             } catch (Exception e) {
-                log.error("告警平台: {} 发送告警失败", platformName, e);
+                log.error("告警平台: {} 发送告警失败", strategy.getStrategyName(), e);
             }
         }
 
@@ -150,11 +165,9 @@ public class NotifyServiceImpl implements INotifyService {
         }
 
         NotifyMessageDTO notifyMessageDTO = new NotifyMessageDTO();
-        notifyMessageDTO.setMessage("线程池告警!");
-        notifyMessageDTO.addParameter("超出线程池处理能力", dangerPools.size());
+        notifyMessageDTO.setMessage("\uD83D\uDD14线程池预警\uD83D\uDD14");
         dangerPools.forEach(pool -> notifyMessageDTO
-                .addParameter("告警原因:", pool.getAlarmReason())
-                .addParameter("======", "======")
+                .addParameter("!告警原因!:", pool.getAlarmReason())
                 .addParameter("应用名称: ", pool.getAppName())
                 .addParameter("线程池名称: ", pool.getThreadPoolName())
                 .addParameter("当前线程数: ", pool.getPoolSize())

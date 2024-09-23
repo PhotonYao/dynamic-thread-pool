@@ -1,6 +1,7 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config;
 
 import com.alibaba.fastjson2.JSON;
+import com.taobao.api.ApiException;
 import jodd.util.StringUtil;
 import org.redisson.Redisson;
 import org.redisson.api.RTopic;
@@ -9,14 +10,17 @@ import org.redisson.codec.JsonJacksonCodec;
 import org.redisson.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnumVO;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.DingDingNotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.FeiShuNotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.INotifyStrategy;
@@ -41,7 +45,6 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 
 @Configuration
-@EnableScheduling
 @EnableConfigurationProperties({DynamicThreadPoolAutoConfigProperties.class, DynamicThreadPoolNotifyAutoProperties.class})
 public class DynamicThreadPoolAutoConfig {
 
@@ -153,23 +156,4 @@ public class DynamicThreadPoolAutoConfig {
 
     }
 
-    @Bean
-    public INotifyStrategy dingDingNotifyStrategy(DynamicThreadPoolNotifyAutoProperties notifyProperties) {
-        logger.info("钉钉通知初始化成功。");
-        return new DingDingNotifyStrategy(notifyProperties);
-    }
-
-    @Bean
-    public INotifyStrategy feiShuNotifyStrategy(DynamicThreadPoolNotifyAutoProperties notifyProperties) {
-        return new FeiShuNotifyStrategy(notifyProperties);
-    }
-
-    @Bean
-    public NotifyServiceImpl notifyServiceImpl(
-            DynamicThreadPoolNotifyAutoProperties properties,
-            RedissonClient dynamicThreadRedissonClient,
-            List<INotifyStrategy> strategyList) {
-
-        return new NotifyServiceImpl(properties, dynamicThreadRedissonClient, strategyList);
-    }
 }
