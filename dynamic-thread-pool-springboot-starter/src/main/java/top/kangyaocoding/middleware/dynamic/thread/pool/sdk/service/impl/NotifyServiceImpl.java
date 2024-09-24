@@ -104,7 +104,7 @@ public class NotifyServiceImpl implements INotifyService {
                 return;
             }
 
-            if (currentCount < 0) {
+            if (currentCount == 0) {
                 atomicLong.set(1);
                 ttlBucket.set(appName + threadPoolName + " is locked for 5 minutes.", Duration.ofMinutes(5));
                 sendNotify(notifyMsg);
