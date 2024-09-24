@@ -38,6 +38,11 @@ public class ThreadPoolReportJob {
     public void executeThreadPoolReportList() {
         List<ThreadPoolConfigEntity> threadPoolConfigEntityList = dynamicThreadPoolService.getThreadPoolConfigList();
 
+        if (threadPoolConfigEntityList.isEmpty()) {
+            log.info("动态线程池无需上报，线程池列表为空");
+            return;
+        }
+
         // 上报线程池列表信息
         registry.reportThreadPool(threadPoolConfigEntityList);
         notifyService.sendIfThreadPoolHasDanger(threadPoolConfigEntityList);

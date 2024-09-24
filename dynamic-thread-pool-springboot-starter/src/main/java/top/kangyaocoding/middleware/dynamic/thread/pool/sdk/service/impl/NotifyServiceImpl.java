@@ -2,6 +2,7 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl;
 
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RAtomicLong;
 import org.redisson.api.RBucket;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
@@ -13,10 +14,12 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadP
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -80,51 +83,54 @@ public class NotifyServiceImpl implements INotifyService {
 
     private void sendNotifyWithRateLimit(NotifyMessageDTO notifyMsg) {
         String appName = notifyMsg.getParameters().get("应用名称: ");
-        String lockKey = "notifyLock:" + appName;
-        String counterKey = "notifyCounter:" + appName;
-        String timestampKey = "notifyTimestamp:" + appName;
+        String threadPoolName = notifyMsg.getParameters().get("线程池名称: ");
+        String lockKey = "notifyLock:" + appName + "_" + threadPoolName;
+        String counterKey = "notifyCounter:" + appName + "_" + threadPoolName;
+        String ttlKey = "ttlCounter:" + appName + "_" + threadPoolName;
 
         RLock lock = redissonClient.getLock(lockKey);
         try {
-            lock.lock();
+            lock.lock(10, TimeUnit.SECONDS); // 显式设置锁的持有时间
 
-            RBucket<Integer> counterBucket = redissonClient.getBucket(counterKey);
-            RBucket<Long> timestampBucket = redissonClient.getBucket(timestampKey);
+            RAtomicLong atomicLong = redissonClient.getAtomicLong(counterKey);
+            RBucket<String> ttlBucket = redissonClient.getBucket(ttlKey);
 
-            int counter = counterBucket.get() == null ? 0 : counterBucket.get();
-            long lastNotifyTime = timestampBucket.get() == null ? 0 : timestampBucket.get();
+            long remainTimeToLive = ttlBucket.remainTimeToLive() / 1000;
+            long currentCount = atomicLong.get();
 
-            long currentTime = System.currentTimeMillis();
-            long fiveMinutes = 5 * 60 * 1000;
-            long twoHours = 2 * 60 * 1000;
-
-            if (currentTime - lastNotifyTime < fiveMinutes) {
-                log.info("告警间隔未到5分钟，跳过本次告警");
+            if (remainTimeToLive > 0) {
+                log.warn("应用 {} 线程 {} 进入冷却期，下一次发送通知剩余时间: {} 秒。已连续通知 {} 次",
+                        appName, threadPoolName, remainTimeToLive, currentCount);
                 return;
             }
 
-            if (counter >= 3 && currentTime - lastNotifyTime < twoHours) {
-                log.info("连续告警超过3次且未到2小时，跳过本次告警");
-                return;
+            if (currentCount < 0) {
+                atomicLong.set(1);
+                ttlBucket.set(appName + threadPoolName + " is locked for 5 minutes.", Duration.ofMinutes(5));
+                sendNotify(notifyMsg);
+            } else if (currentCount >= 3) {
+                atomicLong.set(0);
+                ttlBucket.set(appName + threadPoolName + " is locked for 2 hours.", Duration.ofHours(2));
+                log.warn("应用 {} 线程 {} 连续3次告警，进入冷却期 2 小时。", appName, threadPoolName);
+            } else {
+                atomicLong.incrementAndGet();
+                ttlBucket.set(appName + threadPoolName + " is locked for 5 minutes.", Duration.ofMinutes(5));
+                sendNotify(notifyMsg);
             }
-
-            if (currentTime - lastNotifyTime >= twoHours) {
-                counter = 0;
-            }
-
-            sendNotify(notifyMsg);
-
-            counter++;
-            counterBucket.set(counter);
-            timestampBucket.set(currentTime);
+        } catch (Exception e) {
+            log.error("发送通知时发生错误: ", e);
         } finally {
-            lock.unlock();
+            if (lock.isHeldByCurrentThread()) {
+                lock.unlock();
+            }
         }
     }
+
 
     @Override
     public void sendIfThreadPoolHasDanger(List<ThreadPoolConfigEntity> pools) {
         List<ThreadPoolConfigEntity> dangerPools = new ArrayList<>();
+
         // 遍历线程池列表
         for (ThreadPoolConfigEntity pool : pools) {
             // 获取线程池当前状态
@@ -133,11 +139,12 @@ public class NotifyServiceImpl implements INotifyService {
             int activeCount = pool.getActiveCount();
             int queueSize = pool.getQueueSize();
             int remainingCapacity = pool.getRemainingCapacity();
+            int totalCapacity = queueSize + remainingCapacity;
 
             // 定义危险条件
             boolean isThreadOverload = activeCount > corePoolSize * 0.8;   // 活跃线程数超过核心线程数的80%
             boolean isMaxThreadOverload = activeCount >= maximumPoolSize;  // 活跃线程数已经达到最大线程数
-            boolean isQueueAlmostFull = remainingCapacity <= 0 && queueSize > 0; // 队列已满且还有任务在排队
+            boolean isQueueAlmostFull = queueSize >= 0.8 * totalCapacity; // 队列剩余容量不足20%
 
             // 创建一个变量来存储触发的告警条件
             StringBuilder dangerReason = new StringBuilder();
@@ -150,38 +157,35 @@ public class NotifyServiceImpl implements INotifyService {
                 dangerReason.append("活跃线程数已经达到最大线程数；");
             }
             if (isQueueAlmostFull) {
-                dangerReason.append("队列已满且还有任务在排队；");
+                dangerReason.append("队列剩余容量不足20%；");
             }
 
             // 如果满足任何一个危险条件，则将此线程池添加到危险列表中
             if (!dangerReason.isEmpty()) {
                 pool.setAlarmReason(dangerReason.toString());
                 dangerPools.add(pool);
+
+                // 构建通知消息
+                NotifyMessageDTO notifyMessageDTO = new NotifyMessageDTO();
+                notifyMessageDTO.setMessage("\uD83D\uDD14线程池预警\uD83D\uDD14");
+                notifyMessageDTO.addParameter("目前危险线程池数量为: ", dangerPools.size());
+                notifyMessageDTO.addParameter("!告警原因!:", pool.getAlarmReason())
+                        .addParameter("应用名称: ", pool.getAppName())
+                        .addParameter("线程池名称: ", pool.getThreadPoolName())
+                        .addParameter("当前线程数: ", pool.getPoolSize())
+                        .addParameter("核心线程数: ", pool.getCorePoolSize())
+                        .addParameter("最大线程数: ", pool.getMaximumPoolSize())
+                        .addParameter("活跃线程数: ", pool.getActiveCount())
+                        .addParameter("队列类型: ", pool.getQueueType())
+                        .addParameter("队列中任务数: ", pool.getQueueSize())
+                        .addParameter("队列剩余容量: ", pool.getRemainingCapacity());
+
+                // 发送告警
+                sendNotifyWithRateLimit(notifyMessageDTO);
+                // 打印告警信息
+                log.warn("线程池告警信息: {}", JSON.toJSONString(notifyMessageDTO));
             }
         }
-
-        if (dangerPools.isEmpty()) {
-            return;
-        }
-
-        NotifyMessageDTO notifyMessageDTO = new NotifyMessageDTO();
-        notifyMessageDTO.setMessage("\uD83D\uDD14线程池预警\uD83D\uDD14");
-        dangerPools.forEach(pool -> notifyMessageDTO
-                .addParameter("!告警原因!:", pool.getAlarmReason())
-                .addParameter("应用名称: ", pool.getAppName())
-                .addParameter("线程池名称: ", pool.getThreadPoolName())
-                .addParameter("当前线程数: ", pool.getPoolSize())
-                .addParameter("核心线程数: ", pool.getCorePoolSize())
-                .addParameter("最大线程数: ", pool.getMaximumPoolSize())
-                .addParameter("活跃线程数: ", pool.getActiveCount())
-                .addParameter("队列类型: ", pool.getQueueType())
-                .addParameter("队列中任务数: ", pool.getQueueSize())
-                .addParameter("队列剩余容量: ", pool.getRemainingCapacity())
-        );
-        // 发送告警
-        sendNotifyWithRateLimit(notifyMessageDTO);
-        // 打印告警信息
-        log.warn("线程池告警信息: {}", JSON.toJSONString(notifyMessageDTO));
     }
 }
 

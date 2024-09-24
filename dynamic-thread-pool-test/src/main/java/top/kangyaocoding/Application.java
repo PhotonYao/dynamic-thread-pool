@@ -36,11 +36,11 @@ public class Application {
                     try {
                         // 模拟任务启动延迟
                         TimeUnit.SECONDS.sleep(initialDelay);
-                        System.out.println("1.Task started after " + initialDelay + " seconds.");
+//                        System.out.println("1.Task started after " + initialDelay + " seconds.");
 
                         // 模拟任务执行
                         TimeUnit.SECONDS.sleep(sleepTime);
-                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
+//                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
@@ -51,11 +51,11 @@ public class Application {
                     try {
                         // 模拟任务启动延迟
                         TimeUnit.SECONDS.sleep(initialDelay);
-                        System.out.println("1.Task started after " + initialDelay + " seconds.");
+//                        System.out.println("1.Task started after " + initialDelay + " seconds.");
 
                         // 模拟任务执行
                         TimeUnit.SECONDS.sleep(sleepTime);
-                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
+//                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
