@@ -9,7 +9,7 @@ app:
     password: admin
 
 jwt:
-  secret:
+  secret: ibZro688LyTNw8LenAFXPONyDicpZ3yUsNOSm+gSPxY=
   expiration: 259200
 
 redis:

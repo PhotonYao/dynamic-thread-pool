@@ -29,10 +29,10 @@ dynamic:
           - DingDing
           - FeiShu
         accessToken:
-          dingDing: e6ea4e3bfaff857b21bceec855059009b3c1b37f94fde7c66f165e8edb6172de
+          dingDing:
           feiShu:
         secret:
-          dingDing: SECf12b3839e7d2af57e4ec43d9241eee76cb95f923368f855ee371c6de704df95c
+          dingDing:
           feiShu:
 
 
