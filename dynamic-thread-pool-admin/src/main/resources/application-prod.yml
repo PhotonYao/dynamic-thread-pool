@@ -5,6 +5,8 @@ app:
   config:
     api-version: v1
     cross-origin: ${CROSS_ORIGIN}
+    username: ${ADMIN_USERNAME}
+    password: ${ADMIN_PASSWORD}
 
 thread:
   pool:
@@ -15,6 +17,10 @@ thread:
         keep-alive-time: 5000
         block-queue-size: 5000
         policy: CallerRunsPolicy
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
 
 redis:
   sdk:
