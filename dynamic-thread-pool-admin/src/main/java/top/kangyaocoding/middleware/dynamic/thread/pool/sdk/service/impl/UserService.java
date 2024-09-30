@@ -36,6 +36,8 @@ public class UserService implements IUserService {
                 // 生成 token
                 String token = jwtTokenUtil.generateToken(username);
 
+                log.info("用户 {} 登录成功，token: {}", username, token);
+
                 return Response.<String>builder()
                         .code(ResponseEnum.SUCCESS.getCode())
                         .info(ResponseEnum.SUCCESS.getInfo())

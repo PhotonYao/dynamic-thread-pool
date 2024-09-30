@@ -4,8 +4,10 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.scheduling.annotation.Scheduled;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolMetricsEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
@@ -25,12 +27,15 @@ public class ThreadPoolReportJob {
 
     private final IRegistry registry;
 
+    private final ApplicationEventPublisher eventPublisher; // 注入事件发布器
+
     @Autowired
     private INotifyService notifyService;
 
-    public ThreadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService) {
+    public ThreadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService, ApplicationEventPublisher eventPublisher) {
         this.registry = registry;
         this.dynamicThreadPoolService = dynamicThreadPoolService;
+        this.eventPublisher = eventPublisher;
     }
 
     // 定时任务，每20秒执行一次，用于上报线程池状态
@@ -52,6 +57,10 @@ public class ThreadPoolReportJob {
             try {
                 registry.reportThreadPoolConfigParameter(threadPoolConfigEntity);
                 log.info("动态线程池上报成功: {}", JSON.toJSONString(threadPoolConfigEntity));
+
+                // 发布事件
+                eventPublisher.publishEvent(new ThreadPoolMetricsEntity(threadPoolConfigEntity));
+
             } catch (Exception e) {
                 log.error("动态线程池上报失败: {}", JSON.toJSONString(threadPoolConfigEntity), e);
             }

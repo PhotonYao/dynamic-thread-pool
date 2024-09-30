@@ -1,70 +1,28 @@
 package top.kangyaocoding;
 
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
-
 @SpringBootApplication
-@Configurable
 @EnableScheduling
 public class Application {
+
+    private final TaskSubmitter taskSubmitter;
+
+    public Application(TaskSubmitter taskSubmitter) {
+        this.taskSubmitter = taskSubmitter;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
 
-    @Bean
-    public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01, ExecutorService threadPoolExecutor02) {
-        return args -> {
-            while (true){
-                // 创建一个随机时间生成器
-                Random random = new Random();
-                // 随机时间，用于模拟任务启动延迟
-                int initialDelay = random.nextInt(10) + 1; // 1到10秒之间
-                // 随机休眠时间，用于模拟任务执行时间
-                int sleepTime = random.nextInt(10) + 1; // 1到10秒之间
-
-                // 提交任务到线程池
-                threadPoolExecutor01.submit(() -> {
-                    try {
-                        // 模拟任务启动延迟
-                        TimeUnit.SECONDS.sleep(initialDelay);
-//                        System.out.println("1.Task started after " + initialDelay + " seconds.");
-
-                        // 模拟任务执行
-                        TimeUnit.SECONDS.sleep(sleepTime);
-//                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                    }
-                });
-
-                // 提交任务到线程池
-                threadPoolExecutor02.submit(() -> {
-                    try {
-                        // 模拟任务启动延迟
-                        TimeUnit.SECONDS.sleep(initialDelay);
-//                        System.out.println("1.Task started after " + initialDelay + " seconds.");
-
-                        // 模拟任务执行
-                        TimeUnit.SECONDS.sleep(sleepTime);
-//                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                    }
-                });
-
-                Thread.sleep(random.nextInt(50) + 1);
-            }
-        };
+    // 监听 ApplicationReadyEvent 确保任务在 Spring Boot 启动完成后才提交
+    @EventListener(ApplicationReadyEvent.class)
+    public void onApplicationReady() {
+        taskSubmitter.submitTasks();
     }
-
-
 }

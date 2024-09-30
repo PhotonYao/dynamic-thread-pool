@@ -2,6 +2,7 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config;
 
 import com.alibaba.fastjson2.JSON;
 import com.taobao.api.ApiException;
+import io.micrometer.core.instrument.MeterRegistry;
 import jodd.util.StringUtil;
 import org.redisson.Redisson;
 import org.redisson.api.RTopic;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -31,6 +33,7 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.Dynamic
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.NotifyServiceImpl;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolAdjustListener;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolMetricsListener;
 
 import java.util.List;
 import java.util.Map;
@@ -127,8 +130,13 @@ public class DynamicThreadPoolAutoConfig {
     }
 
     @Bean
-    public ThreadPoolReportJob threadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService) {
-        return new ThreadPoolReportJob(registry, dynamicThreadPoolService);
+    public ThreadPoolReportJob threadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService, ApplicationEventPublisher applicationEventPublisher) {
+        return new ThreadPoolReportJob(registry, dynamicThreadPoolService, applicationEventPublisher);
+    }
+
+    @Bean
+    public ThreadPoolMetricsListener threadPoolMetricsListener(MeterRegistry meterRegistry) {
+        return new ThreadPoolMetricsListener(meterRegistry);
     }
 
     @Bean

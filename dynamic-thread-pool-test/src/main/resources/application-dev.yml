@@ -23,16 +23,18 @@ dynamic:
         host: 127.0.0.1
         # redis port
         port: 6379
+        # cron表达式 默认20秒
+        cron: "*/20 * * * * ?"
       notify:
         enabled: true
         usePlatform:
           - DingDing
           - FeiShu
         accessToken:
-          dingDing:
+          dingDing: e6ea4e3bfaff857b21bceec855059009b3c1b37f94fde7c66f165e8edb6172de
           feiShu:
         secret:
-          dingDing:
+          dingDing: SECf12b3839e7d2af57e4ec43d9241eee76cb95f923368f855ee371c6de704df95c
           feiShu:
 
 
@@ -49,6 +51,32 @@ redis:
       retry-interval: 1000
       ping-interval: 60000
       keep-alive: true
+
+
+# 监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" # 暴露所有端点，包括自定义端点
+  endpoint:
+    metrics:
+      enabled: true
+    health:
+      show-details: always # 显示详细的健康检查信息
+  metrics:
+    export:
+      prometheus:
+        enabled: true # 启用Prometheus
+  prometheus:
+    enabled: true # 启用Prometheus端点
+  jmx:
+    enabled: true # 启用JMX监控
+  system:
+    cpu:
+      enabled: true # 启用CPU监控
+    memory:
+      enabled: true # 启用内存监控
 
 # 日志
 logging:
