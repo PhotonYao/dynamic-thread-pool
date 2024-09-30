@@ -9,8 +9,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @since 2024-09-15 11:23
  */
 
-@ConfigurationProperties(prefix = "dynamic.thread.pool.config", ignoreUnknownFields = true)
-public class DynamicThreadPoolAutoConfigProperties {
+@ConfigurationProperties(prefix = "dynamic-thread-pool.registry.redis", ignoreUnknownFields = true)
+public class DynamicThreadPooRegistryRedisAutoProperties {
     /**
      * 状态；open = 开启、close 关闭
      */

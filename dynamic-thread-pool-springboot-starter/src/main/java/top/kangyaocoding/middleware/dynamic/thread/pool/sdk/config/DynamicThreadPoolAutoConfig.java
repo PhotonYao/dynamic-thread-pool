@@ -1,7 +1,9 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config;
 
 import com.alibaba.fastjson2.JSON;
-import com.taobao.api.ApiException;
+import io.micrometer.core.instrument.Meter;
+import io.micrometer.core.instrument.config.MeterFilter;
+import io.micrometer.core.instrument.config.MeterFilterReply;
 import jodd.util.StringUtil;
 import org.redisson.Redisson;
 import org.redisson.api.RTopic;
@@ -10,29 +12,24 @@ import org.redisson.codec.JsonJacksonCodec;
 import org.redisson.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
+import org.springframework.boot.actuate.autoconfigure.metrics.export.prometheus.PrometheusProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnumVO;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.DingDingNotifyStrategy;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.FeiShuNotifyStrategy;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.INotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.redis.RedisRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.DynamicThreadPoolServiceImpl;
-import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.NotifyServiceImpl;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolAdjustListener;
 
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -45,7 +42,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 
 @Configuration
-@EnableConfigurationProperties({DynamicThreadPoolAutoConfigProperties.class, DynamicThreadPoolNotifyAutoProperties.class})
+@EnableConfigurationProperties({DynamicThreadPooRegistryRedisAutoProperties.class, DynamicThreadPoolNotifyAutoProperties.class})
 public class DynamicThreadPoolAutoConfig {
 
     private final Logger logger = LoggerFactory.getLogger(DynamicThreadPoolAutoConfig.class);
@@ -54,7 +51,7 @@ public class DynamicThreadPoolAutoConfig {
 
     @Bean("dynamicThreadPoolRedissonClient")
     @ConditionalOnMissingBean(RedissonClient.class)
-    public RedissonClient redissonClient(DynamicThreadPoolAutoConfigProperties properties) {
+    public RedissonClient redissonClient(DynamicThreadPooRegistryRedisAutoProperties properties) {
         Config config = new Config();
         // 根据需要可以设定编解码器；https://github.com/redisson/redisson/wiki/4.-%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97%E5%8C%96
         config.setCodec(JsonJacksonCodec.INSTANCE);
@@ -74,7 +71,8 @@ public class DynamicThreadPoolAutoConfig {
 
         RedissonClient redissonClient = Redisson.create(config);
 
-        logger.info("动态线程池，注册器（redis）链接初始化完成。{} {} {}", properties.getHost(), properties.getPoolSize(), !redissonClient.isShutdown());
+        logger.info("动态线程池，注册器（redis）链接初始化完成。{} {} {}",
+                properties.getHost(), properties.getPoolSize(), !redissonClient.isShutdown());
 
         return redissonClient;
     }
@@ -102,8 +100,8 @@ public class DynamicThreadPoolAutoConfig {
     public DynamicThreadPoolServiceImpl dynamicThreadPoolAService(
             ApplicationContext applicationContext, Map<String,
             ThreadPoolExecutor> threadPoolExecutorMap,
-            RedissonClient dynamicThreadRedissonClient) {
-
+            RedissonClient dynamicThreadRedissonClient
+    ) {
         applicationName = applicationContext.getEnvironment().
                 getProperty("spring.application.name");
 
@@ -151,7 +149,7 @@ public class DynamicThreadPoolAutoConfig {
         RTopic topic = dynamicThreadRedissonClient.getTopic(RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + applicationName);
         // 为特定的类和监听器注册消息监听
         topic.addListener(ThreadPoolConfigEntity.class, threadPoolAdjustListener);
-        // 返回配置好的主题实例
+
         return topic;
 
     }

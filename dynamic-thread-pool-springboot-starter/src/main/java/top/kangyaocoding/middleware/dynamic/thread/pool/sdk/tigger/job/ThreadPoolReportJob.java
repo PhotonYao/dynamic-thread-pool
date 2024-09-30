@@ -34,7 +34,7 @@ public class ThreadPoolReportJob {
     }
 
     // 定时任务，每20秒执行一次，用于上报线程池状态
-    @Scheduled(cron = "*/20 * * * * ?")
+    @Scheduled(cron = "${dynamic-thread-pool.report.cron}")
     public void executeThreadPoolReportList() {
         List<ThreadPoolConfigEntity> threadPoolConfigEntityList = dynamicThreadPoolService.getThreadPoolConfigList();
 

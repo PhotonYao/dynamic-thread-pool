@@ -6,7 +6,7 @@
     <parent>
         <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
         <artifactId>dynamic-thread-pool</artifactId>
-        <version>1.6</version>
+        <version>1.7</version>
     </parent>
 
     <artifactId>dynamic-thread-pool-springboot-starter</artifactId>
@@ -32,6 +32,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <!-- 监控；actuator-上报、prometheus-采集、grafana-展示 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,6 +1,7 @@
 package top.kangyaocoding;
 
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,54 +18,53 @@ import java.util.concurrent.TimeUnit;
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class);
+        SpringApplication.run(Application.class, args);
     }
 
     @Bean
     public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01, ExecutorService threadPoolExecutor02) {
-        return args -> {
-            while (true){
-                // 创建一个随机时间生成器
+        return new ApplicationRunner() {
+            @Override
+            public void run(ApplicationArguments args) {
                 Random random = new Random();
-                // 随机时间，用于模拟任务启动延迟
-                int initialDelay = random.nextInt(10) + 1; // 1到10秒之间
-                // 随机休眠时间，用于模拟任务执行时间
-                int sleepTime = random.nextInt(10) + 1; // 1到10秒之间
+                while (true) {
+                    // 创建一个随机时间生成器
+                    int initialDelay = random.nextInt(50) + 1; // 1到10秒之间
+                    int sleepTime = random.nextInt(50) + 1; // 1到10秒之间
 
-                // 提交任务到线程池
-                threadPoolExecutor01.submit(() -> {
+                    // 提交任务到线程池1
+                    threadPoolExecutor01.submit(() -> {
+                        try {
+                            TimeUnit.SECONDS.sleep(initialDelay);
+                            System.out.println("Task 1 started after " + initialDelay + " seconds.");
+
+                            TimeUnit.SECONDS.sleep(sleepTime);
+                            System.out.println("Task 1 executed for " + sleepTime + " seconds.");
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+                    });
+
+                    // 提交任务到线程池2
+                    threadPoolExecutor02.submit(() -> {
+                        try {
+                            TimeUnit.SECONDS.sleep(initialDelay);
+                            System.out.println("Task 2 started after " + initialDelay + " seconds.");
+
+                            TimeUnit.SECONDS.sleep(sleepTime);
+                            System.out.println("Task 2 executed for " + sleepTime + " seconds.");
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+                    });
+
                     try {
-                        // 模拟任务启动延迟
-                        TimeUnit.SECONDS.sleep(initialDelay);
-//                        System.out.println("1.Task started after " + initialDelay + " seconds.");
-
-                        // 模拟任务执行
-                        TimeUnit.SECONDS.sleep(sleepTime);
-//                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
+                        Thread.sleep(random.nextInt(50) + 1);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
-                });
-
-                // 提交任务到线程池
-                threadPoolExecutor02.submit(() -> {
-                    try {
-                        // 模拟任务启动延迟
-                        TimeUnit.SECONDS.sleep(initialDelay);
-//                        System.out.println("1.Task started after " + initialDelay + " seconds.");
-
-                        // 模拟任务执行
-                        TimeUnit.SECONDS.sleep(sleepTime);
-//                        System.out.println("1.Task executed for " + sleepTime + " seconds.");
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                    }
-                });
-
-                Thread.sleep(random.nextInt(50) + 1);
+                }
             }
         };
     }
-
-
 }

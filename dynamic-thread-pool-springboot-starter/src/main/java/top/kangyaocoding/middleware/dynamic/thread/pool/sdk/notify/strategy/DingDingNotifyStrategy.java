@@ -1,4 +1,4 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.strategy;
 
 import com.dingtalk.api.DefaultDingTalkClient;
 import com.dingtalk.api.DingTalkClient;
@@ -11,6 +11,7 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThread
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.NotifyStrategyEnumVO;
 import org.apache.commons.codec.binary.Base64;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

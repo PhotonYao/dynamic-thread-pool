@@ -6,7 +6,7 @@
 
     <groupId>top.kangyaocoding.dynamic.thread.pool.sdk</groupId>
     <artifactId>dynamic-thread-pool</artifactId>
-    <version>1.6</version>
+    <version>1.7</version>
 
     <packaging>pom</packaging>
 
@@ -26,8 +26,14 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
     <dependencyManagement>
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>3.3.1</version>
+        </dependency>
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>

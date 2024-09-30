@@ -18,7 +18,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ConfigurationProperties(prefix = "dynamic.thread.pool.notify", ignoreUnknownFields = true)
+@ConfigurationProperties(prefix = "dynamic-thread-pool.notify", ignoreUnknownFields = true)
 public class DynamicThreadPoolNotifyAutoProperties {
     private Boolean enabled = false;
     private List<String> usePlatform = new ArrayList<>();

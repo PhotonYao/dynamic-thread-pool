@@ -1,11 +1,11 @@
-package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify;
+package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.strategy;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Component;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolNotifyAutoProperties;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.NotifyStrategyEnumVO;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
 
 /**
  * 描述: 飞书通知
