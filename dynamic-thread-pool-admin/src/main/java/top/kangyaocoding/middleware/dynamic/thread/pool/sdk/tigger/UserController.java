@@ -15,7 +15,7 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response
 
 @RestController()
 @CrossOrigin(origins = "${app.config.cross-origin}")
-@RequestMapping("/api/${app.config.api-version}/user/")
+@RequestMapping("/api/${app.config.api-version}/auth/")
 public class UserController {
 
     private final IUserService userService;
