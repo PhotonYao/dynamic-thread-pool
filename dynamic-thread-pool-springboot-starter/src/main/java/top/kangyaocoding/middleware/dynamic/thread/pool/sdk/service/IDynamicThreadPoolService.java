@@ -17,4 +17,8 @@ public interface IDynamicThreadPoolService {
     ThreadPoolConfigEntity getThreadPoolConfigByName(String threadPoolName);
 
     boolean updateThreadPoolConfig(ThreadPoolConfigEntity threadPoolConfigEntity);
+
+    String getReportCron();
+
+    String updateReportCron(String cron);
 }

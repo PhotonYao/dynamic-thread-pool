@@ -22,7 +22,7 @@ public class Application {
     }
 
     @Bean
-    public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01, ExecutorService threadPoolExecutor02) {
+    public ApplicationRunner applicationRunner(ExecutorService threadPoolExecutor01, ExecutorService threadPoolExecutor02, ExecutorService threadPoolExecutor03) {
         return new ApplicationRunner() {
             @Override
             public void run(ApplicationArguments args) {
@@ -53,6 +53,19 @@ public class Application {
 
                             TimeUnit.SECONDS.sleep(sleepTime);
                             System.out.println("Task 2 executed for " + sleepTime + " seconds.");
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+                    });
+
+                    // 提交任务到线程池3
+                    threadPoolExecutor03.submit(() -> {
+                        try {
+                            TimeUnit.SECONDS.sleep(initialDelay);
+                            System.out.println("Task 3 started after " + initialDelay + " seconds.");
+
+                            TimeUnit.SECONDS.sleep(sleepTime);
+                            System.out.println("Task 3 executed for " + sleepTime + " seconds.");
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                         }

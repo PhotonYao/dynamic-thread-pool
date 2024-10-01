@@ -19,6 +19,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnumVO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
@@ -42,7 +43,8 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 
 @Configuration
-@EnableConfigurationProperties({DynamicThreadPooRegistryRedisAutoProperties.class, DynamicThreadPoolNotifyAutoProperties.class})
+@EnableConfigurationProperties({DynamicThreadPooRegistryRedisAutoProperties.class,
+        DynamicThreadPoolNotifyAutoProperties.class, DynamicThreadPoolReportProperties.class})
 public class DynamicThreadPoolAutoConfig {
 
     private final Logger logger = LoggerFactory.getLogger(DynamicThreadPoolAutoConfig.class);
@@ -100,7 +102,8 @@ public class DynamicThreadPoolAutoConfig {
     public DynamicThreadPoolServiceImpl dynamicThreadPoolAService(
             ApplicationContext applicationContext, Map<String,
             ThreadPoolExecutor> threadPoolExecutorMap,
-            RedissonClient dynamicThreadRedissonClient
+            RedissonClient dynamicThreadRedissonClient,
+            DynamicThreadPoolReportProperties reportProperties
     ) {
         applicationName = applicationContext.getEnvironment().
                 getProperty("spring.application.name");
@@ -121,12 +124,12 @@ public class DynamicThreadPoolAutoConfig {
 
         logger.info("线程池信息：{}", JSON.toJSONString(threadPoolExecutorKeys));
 
-        return new DynamicThreadPoolServiceImpl(applicationName, threadPoolExecutorMap);
+        return new DynamicThreadPoolServiceImpl(reportProperties, applicationName, threadPoolExecutorMap);
     }
 
     @Bean
-    public ThreadPoolReportJob threadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService) {
-        return new ThreadPoolReportJob(registry, dynamicThreadPoolService);
+    public ThreadPoolReportJob threadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService, DynamicThreadPoolReportProperties properties) {
+        return new ThreadPoolReportJob(registry, dynamicThreadPoolService, properties);
     }
 
     @Bean

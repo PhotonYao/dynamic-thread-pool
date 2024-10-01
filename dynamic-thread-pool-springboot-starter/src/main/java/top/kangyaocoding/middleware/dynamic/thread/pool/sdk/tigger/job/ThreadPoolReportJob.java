@@ -5,12 +5,17 @@ import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
+import org.springframework.scheduling.support.CronTrigger;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolReportProperties;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * 描述: 动态线程池上报任务
@@ -23,18 +28,41 @@ public class ThreadPoolReportJob {
 
     private final IDynamicThreadPoolService dynamicThreadPoolService;
 
+    private final DynamicThreadPoolReportProperties dynamicThreadPoolReportProperties;
+
+    private ScheduledFuture<?> future;
+
+    private final ThreadPoolTaskScheduler taskScheduler;
+
     private final IRegistry registry;
 
     @Autowired
     private INotifyService notifyService;
 
-    public ThreadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService) {
+    public ThreadPoolReportJob(IRegistry registry, IDynamicThreadPoolService dynamicThreadPoolService, DynamicThreadPoolReportProperties dynamicThreadPoolReportProperties) {
         this.registry = registry;
         this.dynamicThreadPoolService = dynamicThreadPoolService;
+        this.dynamicThreadPoolReportProperties = dynamicThreadPoolReportProperties;
+        this.taskScheduler = new ThreadPoolTaskScheduler();
+        this.taskScheduler.initialize();
     }
 
-    // 定时任务，每20秒执行一次，用于上报线程池状态
-    @Scheduled(cron = "${dynamic-thread-pool.report.cron}")
+    // 在应用启动时调度任务
+    @PostConstruct
+    public void scheduleTask() {
+        updateCronTask(dynamicThreadPoolReportProperties.getReport().getCron());
+    }
+
+    // 更新定时任务
+    public void updateCronTask(String cronExpression) {
+        if (future != null) {
+            future.cancel(false);  // 停止当前的任务
+        }
+
+        future = taskScheduler.schedule(this::executeThreadPoolReportList, new CronTrigger(cronExpression));
+    }
+
+    // 定时任务
     public void executeThreadPoolReportList() {
         List<ThreadPoolConfigEntity> threadPoolConfigEntityList = dynamicThreadPoolService.getThreadPoolConfigList();
 

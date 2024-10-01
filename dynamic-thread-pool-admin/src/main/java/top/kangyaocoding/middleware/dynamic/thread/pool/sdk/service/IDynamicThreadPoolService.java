@@ -1,5 +1,6 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response;
 
@@ -18,4 +19,5 @@ public interface IDynamicThreadPoolService {
     Response<ThreadPoolConfigEntity> queryThreadPoolConfig(String appName, String threadPoolName);
 
     Response<Boolean> updateThreadPoolConfig(ThreadPoolConfigEntity request);
+
 }

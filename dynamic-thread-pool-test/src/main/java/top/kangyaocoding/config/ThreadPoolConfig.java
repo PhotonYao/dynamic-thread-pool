@@ -18,7 +18,7 @@ public class ThreadPoolConfig {
     public ThreadPoolExecutor threadPoolExecutor01(ThreadPoolConfigProperties properties) {
         // 实例化策略
         RejectedExecutionHandler handler;
-        switch (properties.getPolicy()){
+        switch (properties.getPolicy()) {
             case "AbortPolicy":
                 handler = new ThreadPoolExecutor.AbortPolicy();
                 break;
@@ -50,7 +50,39 @@ public class ThreadPoolConfig {
     public ThreadPoolExecutor threadPoolExecutor02(ThreadPoolConfigProperties properties) {
         // 实例化策略
         RejectedExecutionHandler handler;
-        switch (properties.getPolicy()){
+        switch (properties.getPolicy()) {
+            case "AbortPolicy":
+                handler = new ThreadPoolExecutor.AbortPolicy();
+                break;
+            case "DiscardPolicy":
+                handler = new ThreadPoolExecutor.DiscardPolicy();
+                break;
+            case "DiscardOldestPolicy":
+                handler = new ThreadPoolExecutor.DiscardOldestPolicy();
+                break;
+            case "CallerRunsPolicy":
+                handler = new ThreadPoolExecutor.CallerRunsPolicy();
+                break;
+            default:
+                handler = new ThreadPoolExecutor.AbortPolicy();
+                break;
+        }
+
+        // 创建线程池
+        return new ThreadPoolExecutor(properties.getCorePoolSize(),
+                properties.getMaxPoolSize(),
+                properties.getKeepAliveTime(),
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(properties.getBlockQueueSize()),
+                Executors.defaultThreadFactory(),
+                handler);
+    }
+
+    @Bean("threadPoolExecutor03")
+    public ThreadPoolExecutor threadPoolExecutor03(ThreadPoolConfigProperties properties) {
+        // 实例化策略
+        RejectedExecutionHandler handler;
+        switch (properties.getPolicy()) {
             case "AbortPolicy":
                 handler = new ThreadPoolExecutor.AbortPolicy();
                 break;

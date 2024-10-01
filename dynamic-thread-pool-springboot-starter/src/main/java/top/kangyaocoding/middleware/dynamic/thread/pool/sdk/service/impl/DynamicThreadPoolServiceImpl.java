@@ -3,10 +3,12 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolReportProperties;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.dto.NotifyMessageDTO;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.INotifyService;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,12 +24,20 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Slf4j
 public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
 
+    private final DynamicThreadPoolReportProperties dynamicThreadPoolReportProperties;
+
     private final String applicationName;
+
     private final Map<String, ThreadPoolExecutor> threadPoolExecutorMap;
+
+    @Autowired
+    private ThreadPoolReportJob threadPoolReportJob;
+
     @Autowired
     private INotifyService notifyService;
 
-    public DynamicThreadPoolServiceImpl(String applicationName, Map<String, ThreadPoolExecutor> threadPoolExecutorMap) {
+    public DynamicThreadPoolServiceImpl(DynamicThreadPoolReportProperties dynamicThreadPoolReportProperties, String applicationName, Map<String, ThreadPoolExecutor> threadPoolExecutorMap) {
+        this.dynamicThreadPoolReportProperties = dynamicThreadPoolReportProperties;
         this.applicationName = applicationName;
         this.threadPoolExecutorMap = threadPoolExecutorMap;
     }
@@ -177,6 +187,18 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
             log.error("动态线程池，配置更新失败，异常信息: {}", JSON.toJSONString(threadPoolConfigEntity), e);
             return false;
         }
+    }
+
+    @Override
+    public String getReportCron() {
+        return dynamicThreadPoolReportProperties.getReport().getCron();
+    }
+
+    @Override
+    public String updateReportCron(String cron) {
+        dynamicThreadPoolReportProperties.getReport().setCron(cron);
+        threadPoolReportJob.updateCronTask(cron); // 更新定时任务的cron表达式
+        return cron;
     }
 
 }
