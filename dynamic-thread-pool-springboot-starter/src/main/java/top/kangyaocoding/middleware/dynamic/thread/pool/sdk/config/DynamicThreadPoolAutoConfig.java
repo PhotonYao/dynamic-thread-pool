@@ -21,17 +21,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.vo.RegistryEnumVO;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.notify.AbstractNotifyStrategy;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.IRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.registry.redis.RedisRegistry;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.IDynamicThreadPoolService;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.DynamicThreadPoolServiceImpl;
+import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.service.impl.NotifyServiceImpl;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.job.ThreadPoolReportJob;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.tigger.listener.ThreadPoolAdjustListener;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -80,6 +79,11 @@ public class DynamicThreadPoolAutoConfig {
     @Bean
     public IRegistry redisRegistry(RedissonClient dynamicThreadRedissonClient) {
         return new RedisRegistry(dynamicThreadRedissonClient);
+    }
+
+    @Bean("notifyService")
+    public NotifyServiceImpl notifyService(DynamicThreadPoolNotifyAutoProperties properties, RedissonClient dynamicThreadRedissonClient, List<AbstractNotifyStrategy> strategyList) {
+        return new NotifyServiceImpl(properties, dynamicThreadRedissonClient, strategyList);
     }
 
     /**

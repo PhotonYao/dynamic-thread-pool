@@ -3,6 +3,7 @@ package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config;
 import io.micrometer.core.instrument.Meter;
 import io.micrometer.core.instrument.config.MeterFilter;
 import io.micrometer.core.instrument.config.MeterFilterReply;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.actuate.autoconfigure.endpoint.web.WebEndpointProperties;
 import org.springframework.boot.actuate.autoconfigure.metrics.export.prometheus.PrometheusProperties;
 import org.springframework.context.ApplicationContext;
@@ -18,7 +19,7 @@ import java.util.HashSet;
  * @author K·Herbert
  * @since 2024-09-30 11:06
  */
-
+@Slf4j
 @Configuration
 public class PrometheusAutoConfig {
     @Bean
@@ -33,7 +34,7 @@ public class PrometheusAutoConfig {
                         "prometheus"
                 ))
         );
-
+        log.info("PrometheusConfigRunner init");
         prometheusProperties.setEnabled(true);
 
         return new PrometheusConfigRunner(applicationContext);

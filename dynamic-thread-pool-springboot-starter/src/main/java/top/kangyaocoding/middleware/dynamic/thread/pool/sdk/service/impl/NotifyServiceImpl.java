@@ -29,13 +29,11 @@ import java.util.stream.Collectors;
  * @since 2024-09-21 23:44
  */
 @Slf4j
-@Service
 public class NotifyServiceImpl implements INotifyService {
     private Map<String, AbstractNotifyStrategy> strategies = new HashMap<>();
     private final DynamicThreadPoolNotifyAutoProperties properties;
     private final RedissonClient redissonClient;
 
-    @Autowired
     public NotifyServiceImpl(DynamicThreadPoolNotifyAutoProperties properties, RedissonClient redissonClient, List<AbstractNotifyStrategy> strategyList) {
         this.properties = properties;
         this.redissonClient = redissonClient;
@@ -58,7 +56,7 @@ public class NotifyServiceImpl implements INotifyService {
         Boolean enabled = properties.getEnabled();
         List<String> platform = properties.getUsePlatform();
         if (!enabled || platform.isEmpty()) {
-            log.info("告警服务未启用");
+            log.warn("告警服务未启用");
             return;
         }
 
@@ -183,7 +181,7 @@ public class NotifyServiceImpl implements INotifyService {
                 // 发送告警
                 sendNotifyWithRateLimit(notifyMessageDTO);
                 // 打印告警信息
-                log.warn("线程池告警信息: {}", JSON.toJSONString(notifyMessageDTO));
+                log.debug("线程池告警信息: {}", JSON.toJSONString(notifyMessageDTO));
             }
         }
     }

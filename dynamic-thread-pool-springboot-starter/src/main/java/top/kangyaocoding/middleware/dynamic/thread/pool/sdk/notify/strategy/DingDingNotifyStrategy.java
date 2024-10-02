@@ -38,7 +38,7 @@ public class DingDingNotifyStrategy extends AbstractNotifyStrategy {
     }
 
     @Override
-    public void sendNotify(NotifyMessageDTO notifyMsg) throws ApiException, UnsupportedEncodingException, InvalidKeyException, NoSuchAlgorithmException {
+    public void sendNotify(NotifyMessageDTO notifyMsg) throws ApiException, InvalidKeyException, NoSuchAlgorithmException {
         String accessToken = notifyProperties.getAccessToken().getDingDing();
         String secret = notifyProperties.getSecret().getDingDing();
 

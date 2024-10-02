@@ -2,14 +2,18 @@ version: "3"
 services:
   dynamic-tp-admin:
     container_name: dynamic-tp-admin
-    image: registry.cn-hangzhou.aliyuncs.com/kangyaocoding/dynamic-tp-admin:1.0
+    image: registry.cn-hangzhou.aliyuncs.com/kangyaocoding/dynamic-thread-pool-web:1.2
     ports:
       - "8092:8092"
     environment:
-      CROSS_ORIGIN: "https://ai.kangyaocoding.top,http://tp.kangyaocoding.top"
+      CROSS_ORIGIN: "*"
       REDIS_HOST: 172.18.0.5
       REDIS_PASSWORD: redis_4Y3D5G
       REDIS_PORT: 6379
+      JWT_SECRET: ibZro688LyTNw8LenAFXPONyDicpZ3yUsNOSm+gSPxY=
+      JWT_EXPIRATION: 259200
+      ADMIN_USERNAME: HerbertTP501
+      ADMIN_PASSWORD: Herbert501White++--
     networks:
       - 1panel-network
 

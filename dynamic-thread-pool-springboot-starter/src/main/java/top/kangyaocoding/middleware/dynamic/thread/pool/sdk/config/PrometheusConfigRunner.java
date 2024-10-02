@@ -1,10 +1,12 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config;
 
+import com.alibaba.fastjson2.JSON;
 import io.micrometer.core.instrument.ImmutableTag;
 import io.micrometer.core.instrument.Metrics;
 import io.micrometer.core.instrument.Tag;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
@@ -15,15 +17,16 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Slf4j
 public class PrometheusConfigRunner implements ApplicationRunner {
 
     private ApplicationContext applicationContext;
 
     @Override
     public void run(ApplicationArguments args) {
-        System.out.println("PrometheusConfigRunner is running..."); // Debug log
+        log.info("Registering ThreadPoolExecutor beans...");
         String[] beanNamesForType = applicationContext.getBeanNamesForType(ThreadPoolExecutor.class);
-        System.out.println("Found ThreadPoolExecutor beans: " + Arrays.toString(beanNamesForType)); // Log found beans
+        log.info("Found {} ThreadPoolExecutor beans", JSON.toJSONString(beanNamesForType) );
         for (String beanName : beanNamesForType) {
             ThreadPoolExecutor executor = (ThreadPoolExecutor) applicationContext.getBean(beanName);
             registerThreadPool(

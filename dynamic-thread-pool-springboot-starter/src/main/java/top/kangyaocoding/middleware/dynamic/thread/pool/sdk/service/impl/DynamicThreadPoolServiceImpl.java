@@ -67,7 +67,7 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
             threadPoolVOS.add(threadPoolVO);
         }
 
-        log.info("动态线程池，配置查询，应用名: {} 池化配置列表: {}", applicationName, JSON.toJSONString(threadPoolVOS));
+        log.debug("动态线程池，配置查询，应用名: {} 池化配置列表: {}", applicationName, JSON.toJSONString(threadPoolVOS));
 
         // 返回线程池配置列表
         return threadPoolVOS;

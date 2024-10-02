@@ -1,1 +1,3 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.DynamicThreadPoolAutoConfig,\
+top.kangyaocoding.middleware.dynamic.thread.pool.sdk.config.PrometheusAutoConfig
