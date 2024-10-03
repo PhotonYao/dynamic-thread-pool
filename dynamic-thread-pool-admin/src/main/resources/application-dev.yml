@@ -7,6 +7,7 @@ app:
     cross-origin: "*"
     username: admin
     password: admin
+    grafanaUrl: localhost:3000
 
 jwt:
   secret: ibZro688LyTNw8LenAFXPONyDicpZ3yUsNOSm+gSPxY=
@@ -17,7 +18,6 @@ redis:
     config:
       host: localhost
       port: 6379
-      password:
       pool-size: 10
       min-idle-size: 5
       idle-timeout: 30000

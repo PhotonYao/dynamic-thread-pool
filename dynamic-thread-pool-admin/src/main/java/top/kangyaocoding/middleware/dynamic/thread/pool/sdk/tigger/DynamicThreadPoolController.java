@@ -62,4 +62,9 @@ public class DynamicThreadPoolController {
     public Response<Boolean> updateThreadPoolConfig(@RequestBody ThreadPoolConfigEntity request) {
         return dynamicThreadPoolService.updateThreadPoolConfig(request);
     }
+
+    @RequestMapping(value = "get_grafana_url", method = RequestMethod.GET)
+    public Response<String> getGrafanaUrl() {
+        return dynamicThreadPoolService.getGrafanaUrl();
+    }
 }

@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RMap;
 import org.redisson.api.RTopic;
 import org.redisson.api.RedissonClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.model.entity.ThreadPoolConfigEntity;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.DynamicThreadPoolEnum;
@@ -122,4 +123,17 @@ public class DynamicThreadPoolService implements IDynamicThreadPoolService {
                     .build();
         }
     }
+
+    @Value("${app.config.grafanaUrl}")
+    private String GRAFANA_URL;
+
+    @Override
+    public Response<String> getGrafanaUrl() {
+        return Response.<String>builder()
+                .code(ResponseEnum.SUCCESS.getCode())
+                .info(ResponseEnum.SUCCESS.getInfo())
+                .data(GRAFANA_URL)
+                .build();
+    }
+
 }

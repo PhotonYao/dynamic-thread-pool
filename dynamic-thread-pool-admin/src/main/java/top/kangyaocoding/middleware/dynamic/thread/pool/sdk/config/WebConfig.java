@@ -24,9 +24,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(jwtAuthenticationInterceptor(jwtTokenUtil())).excludePathPatterns("/**");
-//                .addPathPatterns("/**") // 拦截所有路径
-//                .excludePathPatterns("/api/*/user/login"); // 排除某些路径
+        registry.addInterceptor(jwtAuthenticationInterceptor(jwtTokenUtil()))
+                .addPathPatterns("/**") // 拦截所有路径
+                .excludePathPatterns("/api/*/auth/login"); // 排除某些路径
     }
 
     @Bean

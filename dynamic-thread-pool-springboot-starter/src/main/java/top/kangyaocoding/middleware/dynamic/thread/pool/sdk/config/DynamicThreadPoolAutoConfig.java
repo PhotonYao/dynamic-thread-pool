@@ -48,7 +48,7 @@ public class DynamicThreadPoolAutoConfig {
 
     private String applicationName;
 
-    @Bean("dynamicThreadPoolRedissonClient")
+    @Bean("redissonClient")
     @ConditionalOnMissingBean(RedissonClient.class)
     public RedissonClient redissonClient(DynamicThreadPooRegistryRedisAutoProperties properties) {
         Config config = new Config();
@@ -77,13 +77,13 @@ public class DynamicThreadPoolAutoConfig {
     }
 
     @Bean
-    public IRegistry redisRegistry(RedissonClient dynamicThreadRedissonClient) {
-        return new RedisRegistry(dynamicThreadRedissonClient);
+    public IRegistry redisRegistry(RedissonClient redissonClient) {
+        return new RedisRegistry(redissonClient);
     }
 
     @Bean("notifyService")
-    public NotifyServiceImpl notifyService(DynamicThreadPoolNotifyAutoProperties properties, RedissonClient dynamicThreadRedissonClient, List<AbstractNotifyStrategy> strategyList) {
-        return new NotifyServiceImpl(properties, dynamicThreadRedissonClient, strategyList);
+    public NotifyServiceImpl notifyService(DynamicThreadPoolNotifyAutoProperties properties, RedissonClient redissonClient, List<AbstractNotifyStrategy> strategyList) {
+        return new NotifyServiceImpl(properties, redissonClient, strategyList);
     }
 
     /**
@@ -97,14 +97,14 @@ public class DynamicThreadPoolAutoConfig {
      *
      * @param applicationContext          应用程序上下文，获取应用程序名称等配置信息。
      * @param threadPoolExecutorMap       包含应用程序中的线程池执行器的 Map，用于存储多个线程池实例。
-     * @param dynamicThreadRedissonClient 用于与 Redis 交互的 Redisson 客户端，从 Redis 中获取线程池配置信息。
+     * @param redissonClient 用于与 Redis 交互的 Redisson 客户端，从 Redis 中获取线程池配置信息。
      * @return DynamicThreadPoolService 动态线程池服务，包含应用程序名称和线程池执行器信息。
      */
     @Bean("dynamicThreadPoolAService")
     public DynamicThreadPoolServiceImpl dynamicThreadPoolAService(
             ApplicationContext applicationContext, Map<String,
             ThreadPoolExecutor> threadPoolExecutorMap,
-            RedissonClient dynamicThreadRedissonClient
+            RedissonClient redissonClient
     ) {
         applicationName = applicationContext.getEnvironment().
                 getProperty("spring.application.name");
@@ -116,7 +116,7 @@ public class DynamicThreadPoolAutoConfig {
         // 获取缓存数据，设置本地线程池
         Set<String> threadPoolExecutorKeys = threadPoolExecutorMap.keySet();
         for (String key : threadPoolExecutorKeys) {
-            ThreadPoolConfigEntity threadPoolConfigEntity = dynamicThreadRedissonClient.<ThreadPoolConfigEntity>getBucket(RegistryEnumVO.THREAD_POOL_CONFIG_PARAMETER_LIST_KEY.getKey() + "_" + applicationName + "_" + key).get();
+            ThreadPoolConfigEntity threadPoolConfigEntity = redissonClient.<ThreadPoolConfigEntity>getBucket(RegistryEnumVO.THREAD_POOL_CONFIG_PARAMETER_LIST_KEY.getKey() + "_" + applicationName + "_" + key).get();
             if (null == threadPoolConfigEntity) continue;
             ThreadPoolExecutor threadPoolExecutor = threadPoolExecutorMap.get(key);
             threadPoolExecutor.setCorePoolSize(threadPoolConfigEntity.getCorePoolSize());
@@ -143,14 +143,14 @@ public class DynamicThreadPoolAutoConfig {
      * 该方法配置并返回一个Redisson主题(RTopic)，该主题用于监听线程池调整事件
      * 它将特定的监听器注册到与动态线程池相关的Redisson主题上
      *
-     * @param dynamicThreadRedissonClient Redisson客户端实例，用于与Redis进行通信
+     * @param redissonClient Redisson客户端实例，用于与Redis进行通信
      * @param threadPoolAdjustListener    线程池调整事件的监听器，当收到消息时会被触发
      * @return RTopic Redisson的主题实例，注册了线程池调整监听器
      */
     @Bean("dynamicThreadPoolRedisTopic")
-    public RTopic threadPoolAdjustListener(RedissonClient dynamicThreadRedissonClient, ThreadPoolAdjustListener threadPoolAdjustListener) {
+    public RTopic threadPoolAdjustListener(RedissonClient redissonClient, ThreadPoolAdjustListener threadPoolAdjustListener) {
         // 构建主题名称，结合系统配置的动态线程池Redis主题前缀和应用名称
-        RTopic topic = dynamicThreadRedissonClient.getTopic(RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + applicationName);
+        RTopic topic = redissonClient.getTopic(RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + applicationName);
         // 为特定的类和监听器注册消息监听
         topic.addListener(ThreadPoolConfigEntity.class, threadPoolAdjustListener);
 

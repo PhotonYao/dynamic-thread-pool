@@ -7,6 +7,7 @@ app:
     cross-origin: ${CROSS_ORIGIN}
     username: ${ADMIN_USERNAME}
     password: ${ADMIN_PASSWORD}
+    grafanaUrl: ${GRAFANA_URL}
 
 thread:
   pool:

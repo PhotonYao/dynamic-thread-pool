@@ -18,4 +18,6 @@ public interface IDynamicThreadPoolService {
     Response<ThreadPoolConfigEntity> queryThreadPoolConfig(String appName, String threadPoolName);
 
     Response<Boolean> updateThreadPoolConfig(ThreadPoolConfigEntity request);
+
+    Response<String> getGrafanaUrl();
 }
