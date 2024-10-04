@@ -1,6 +1,7 @@
 package top.kangyaocoding.middleware.dynamic.thread.pool.sdk.interceptor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.enums.ResponseEnum;
 import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.utils.JwtTokenUtil;
@@ -9,6 +10,7 @@ import top.kangyaocoding.middleware.dynamic.thread.pool.sdk.types.model.Response
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Slf4j
 public class JwtAuthenticationInterceptor implements HandlerInterceptor {
 
     private final JwtTokenUtil jwtTokenUtil;
@@ -21,6 +23,7 @@ public class JwtAuthenticationInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("Authorization");
+        log.info("Authorization: {}", token);
 
         // 构建返回对象的工具
         ObjectMapper objectMapper = new ObjectMapper();
