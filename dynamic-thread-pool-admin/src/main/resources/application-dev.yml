@@ -10,7 +10,7 @@ app:
     grafanaUrl: localhost:3000
 
 jwt:
-  secret: ibZro688LyTNw8LenAFXPONyDicpZ3yUsNOSm+gSPxY=
+  secret:
   expiration: 259200
 
 redis:
