@@ -1,5 +1,6 @@
 ## 动态线程池组件
 > 注：默认已经安装有了 Grafana 和 Prometheus 。
+> 前端地址：https://gitee.com/Herbert0501/dynamic-thread-pool-web
 ### 1. 配置
 
 更改 [grafana.ini](./docs/dev-ops/grafana.ini) 配置文件内容。
