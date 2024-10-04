@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController()
-@CrossOrigin(origins = "${app.config.cross-origin}", allowedHeaders = "Authorization,Content-Type")
+@CrossOrigin(origins = "${app.config.cross-origin}")
 @RequestMapping("/api/${app.config.api-version}/dynamic/thread/pool/")
 public class DynamicThreadPoolController {
 
