@@ -35,3 +35,14 @@ scrape_configs:
 - [ ] 提供前端来调整线程池的上报时间。
 - [ ] 提供可调整的通知频率（如 每 8 小时内，可连续通知 3 次，每次间隔 n 分钟）。
 - [ ] 实现线程池自动调整策略。
+
+#### 自动调整策略目录计划
+```ini
+|-- adjuster
+|   |-- IThreadPoolAdjuster.java
+|   |-- ThreadPoolAdjusterFactory.java
+|   `-- strategy
+|       |-- TaskQueueAdjuster.java
+|       |-- CPUUsageAdjuster.java
+|       `-- ResponseTimeAdjuster.java
+```
