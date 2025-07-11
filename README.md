@@ -26,7 +26,7 @@ scrape_configs:
 #### 更改 [docker-compose.yml](./docs/dev-ops/docker-compose.yml) 配置文件内容。
 要获取grafanaUrl，则先导入 [dynamic-thread-pool-grafana-dashboard.json](./docs/dev-ops/动态线程池监控-dashboard.json) 到 Grafana。
 然后获取 grafanaUrl，可以取消勾选锁定区间。
-![如图](./docs/dev-ops/grafana.png)
+![如图](docs/dev-ops/images/grafana.png)
 
 ### 未来计划
 
